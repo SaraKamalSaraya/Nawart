@@ -2,7 +2,6 @@ import { t } from "i18next";
 import React, { useState } from "react";
 import { Dropdown, Pagination, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import SwalConfirmAlert from "../../../functions/swal/SwalConfirmAlert";
 
 interface TableProps {
   headers: string[];

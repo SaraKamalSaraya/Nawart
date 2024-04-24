@@ -25,30 +25,40 @@ const AsideDefault: FC = () => {
     >
 
       {/* begin::Brand */}
-      <div className='aside-logo flex-column-auto ' id='kt_aside_logo'>
+      <div className='aside-logo flex-column-auto' id='kt_aside_logo'>
         {/* begin::Logo */}
         {aside.theme === 'dark' && (
-          <Link to='/dashboard'>
-            <img
-              alt='Logo'
-              className='h-75px logo '
-              src={toAbsoluteUrl('/media/logos/logo.png')}
-            />
-          </Link>
+          <div className='d-flex align-items-center'>
+            <Link to='/dashboard'>
+              <img
+                alt='Logo'
+                className='h-75px logo '
+                src={toAbsoluteUrl('/media/logos/nawrt.png')}
+              />
+            </Link>
+            <div className='text-white fs-3'>نورت</div>
+          </div>
+
+
         )}
         {aside.theme === 'light' && (
-          <Link to='/dashboard'>
-            <img
-              alt='Logo'
-              className='h-25px logo'
-              src={toAbsoluteUrl('/media/logos/logo.png')}
-            />
-          </Link>
+          <div className='d-flex align-items-center'>
+            <Link to='/dashboard'>
+              <img
+                alt='Logo'
+                className='h-25px logo'
+                src={toAbsoluteUrl('/media/logos/nawrt.png')}
+              />
+            </Link>
+            <div className='text-white fs-3'>نورت</div>
+          </div>
+
         )}
+
         {/* end::Logo */}
 
         {/* begin::Aside toggler */}
-        {aside.minimize && (
+        {/* {aside.minimize && (
           <div
             id='kt_aside_toggle'
             className='btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle'
@@ -62,7 +72,7 @@ const AsideDefault: FC = () => {
               className={'svg-icon-1 rotate-180'}
             />
           </div>
-        )}
+        )} */}
         {/* end::Aside toggler */}
       </div>
       {/* end::Brand */}
