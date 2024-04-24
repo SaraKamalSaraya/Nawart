@@ -1,27 +1,13 @@
 import { lazy, FC, Suspense } from 'react';
-import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { MasterLayout } from '../../_metronic/layout/MasterLayout';
 import TopBarProgress from 'react-topbar-progress-indicator';
 import { getCSSVariableValue } from '../../_metronic/assets/ts/_utils';
 import { useAuth } from '../modules/auth';
-import { t } from 'i18next';
 import { DashboardWrapper } from '../pages/dashboard/DashboardWrapper'
 import UserManagement from '../pages/user-management/UserManagement'
-import MedicalAnalysis from '../pages/medical-analysis/MedicalAnalysis'
 import NoItems from '../pages/no-items/NoItems';
-import MedicalServices from '../pages/medical-services/MedicalServices';
-import VisitANurse from '../pages/visit-a-nurse/VisitANurse';
-import HealthcarePackages from '../pages/healthcare-packages/HealthcarePackages';
-import Addresses from '../pages/addresses/Addresses';
-import Specializations from '../pages/specializations/Specializations';
-import Radiations from '../pages/radiations/Radiations';
-import Services from '../pages/services/Services';
 import ProfilePage from '../pages/profile/ProfilePage';
-import VaccinationsPage from '../pages/vaccinations/Vaccinations';
-import BusinessSnaresPage from '../pages/business-snares/BusinessSnares';
-import Vitamins from '../pages/vitamins/pages/Vitamins';
-import { PageTitle } from '../../_metronic/layout/core';
-import { DataListWrapper } from '../pages/DataTable/DataList';
 
 const PrivateRoutes = () => {
   const { currentLocation } = useAuth();
