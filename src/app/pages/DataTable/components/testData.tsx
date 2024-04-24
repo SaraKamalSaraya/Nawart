@@ -38,3 +38,24 @@ export const Users_Data = [
         phone: 10101010,
     },
 ]
+
+export const Pilots_Data = [
+    {
+        id: 1,
+        fullName: "mohammed",
+        email: "pilot@gmail.com",
+        phone: 10101010,
+    },
+    {
+        id: 1,
+        fullName: "saeed",
+        email: "pilot@gmail.com",
+        phone: 10101010,
+    },
+    {
+        id: 1,
+        fullName: "taha",
+        email: "pilot@gmail.com",
+        phone: 10101010,
+    },
+]

@@ -3,7 +3,7 @@ import { QueryRequestProvider } from './core/QueryRequestProvider'
 import { QueryResponseProvider } from './core/QueryResponseProvider'
 import { KTCard } from '../../../_metronic/helpers'
 import { useEffect, useState } from 'react';
-import { Users_Columns, Admins_Columns } from './components/columns'
+import { Users_Columns, Admins_Columns, Pilots_Columns } from './components/columns'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import MainCustomTable from '../../modules/MainCustomTable/MainCustomTable'
@@ -11,8 +11,8 @@ import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
 import deleteMethod from '../../../functions/deleteMethod'
 import SwalShowAlert from '../../../functions/swal/SwalShowAlert'
 import formatDate from '../../../functions/FormatDate';
-import { Admins_Data, Users_Data } from './components/testData';
-import { Admins_Headers, Users_Headers } from './components/headers';
+import { Admins_Data, Pilots_Data, Users_Data } from './components/testData';
+import { Admins_Headers, Pilots_Headers, Users_Headers } from './components/headers';
 
 
 interface Data {
@@ -43,6 +43,11 @@ const DataList = () => {
       setColumns(Users_Columns)
       setTitle(Users_Columns[0])
       setData(Users_Data)
+    } else if (paramsValue === 'pilots') {
+      setHeaders(Pilots_Headers)
+      setColumns(Pilots_Columns)
+      setTitle(Pilots_Columns[0])
+      setData(Pilots_Data)
     } else {
       setHeaders([])
       setColumns([])
