@@ -14,51 +14,51 @@ export const Default_Inputs = [
 export const Users_Inputs = [
     {
         id: "fullName",
-        label: t('Full Name'),
+        label: 'Full Name',
         type: "text",
-        placeholder: t('ادخل الاسم بالكامل'),
+        placeholder: 'Enter Full Name',
     },
     {
         id: "email",
-        label: t('Email'),
+        label: 'Email',
         type: "text",
-        placeholder: t('ادخل البريد الالكتروني'),
+        placeholder: t('Enter Email'),
     },
     {
         id: "phone",
-        label: t('Phone Number'),
+        label: 'Phone Number',
         type: "number",
-        placeholder: t('ادخل رقم الهاتف'),
+        placeholder: t('Enter Phone Number'),
     }
 ]
 
 export const Admins_Inputs = [
     {
         id: "fullName",
-        label: t('Full Name'),
+        label: 'Full Name',
         type: "text",
-        placeholder: t('ادخل الاسم بالكامل'),
+        placeholder: t('Enter Full Name'),
     },
     {
         id: "email",
-        label: t('Email'),
+        label: 'Email',
         type: "text",
-        placeholder: t('ادخل البريد الالكتروني'),
+        placeholder: t('Enter Email'),
     },
 ]
 
 export const Delivery_Men_Inputs = [
     {
         id: "fullName",
-        label: t('Full Name'),
+        label: 'Full Name',
         type: "text",
-        placeholder: t('ادخل الاسم بالكامل'),
+        placeholder: t('Enter Full Name'),
     },
     {
         id: "email",
-        label: t('Email'),
+        label: 'Email',
         type: "text",
-        placeholder: t('ادخل البريد الالكتروني'),
+        placeholder: t('Enter Email'),
     },
 ]
 
@@ -68,20 +68,50 @@ export const Delivery_Men_Inputs = [
 export const Offers_Inputs = [
     {
         id: "foodItem",
-        label: t('Food Item'),
+        label: 'Food Item',
         type: "select",
-        placeholder: t('Enter Food Item'),
+        placeholder: 'Enter Food Item',
     },
     {
         id: "discount",
-        label: t('Discount Value'),
+        label: 'Discount Value',
         type: "number",
-        placeholder: t('Enter Discount Value'),
+        placeholder: 'Enter Discount Value',
     },
     {
         id: "description",
-        label: t('Description'),
+        label: 'Description',
         type: "text",
-        placeholder: t('Enter Description'),
+        placeholder: 'Enter Description',
     },
 ]
+
+export const Banners_Inputs = [
+    {
+        id: "image",
+        label: 'Image',
+        type: "file",
+        placeholder: 'Add Image',
+    },
+    {
+        id: "title",
+        label: 'Title',
+        type: "text",
+        placeholder: 'Enter Title',
+    },
+    {
+        id: "description",
+        label: 'Description',
+        type: "text",
+        placeholder: 'Enter Description',
+    },
+    {
+        id: "price",
+        label: 'Price',
+        type: "number",
+        placeholder: 'Enter Price',
+    },
+]
+
+
+
