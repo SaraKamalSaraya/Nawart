@@ -1,10 +1,7 @@
 import { ListViewProvider, useListView } from './core/ListViewProvider'
 import { QueryRequestProvider } from './core/QueryRequestProvider'
 import { QueryResponseProvider } from './core/QueryResponseProvider'
-import { KTCard } from '../../../_metronic/helpers'
 import { useEffect, useState } from 'react';
-import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns } from './components/columns'
-import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import MainCustomTable from '../../modules/MainCustomTable/MainCustomTable'
 import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
@@ -12,6 +9,7 @@ import deleteMethod from '../../../functions/deleteMethod'
 import SwalShowAlert from '../../../functions/swal/SwalShowAlert'
 import formatDate from '../../../functions/FormatDate';
 import { Admins_Data, Delivery_Men_Data, Offers_Data, Users_Data } from './components/testData';
+import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns } from './components/columns'
 import { Admins_Headers, Delivery_Men_Headers, Offers_Headers, Users_Headers } from './components/headers';
 
 
