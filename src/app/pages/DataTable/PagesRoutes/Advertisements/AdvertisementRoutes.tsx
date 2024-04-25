@@ -2,6 +2,8 @@ import { Route, Routes, Outlet, Navigate } from 'react-router-dom'
 import { PageLink, PageTitle } from '../../../../../_metronic/layout/core'
 import { DataListWrapper } from '../../DataList'
 import { t } from 'i18next'
+import OffersRoutsPage from './components/offersRouts'
+import BannersRoutsPage from './components/bannersRouts'
 
 const usersBreadcrumbs: Array<PageLink> = [
   {
@@ -21,23 +23,12 @@ const usersBreadcrumbs: Array<PageLink> = [
 const AdvertisementRoutes = () => {
   return (
     <Routes>
+      {/* Users */}
       <Route element={<Outlet />}>
-        {/* Offers */}
-        <Route path='offers' element={
-          <>
-            <PageTitle breadcrumbs={usersBreadcrumbs}>{t('Offers')}</PageTitle>
-            <DataListWrapper />
-          </>
-        } />
-
-        {/* Banners */}
-        <Route path='banners' element={
-          <>
-            <PageTitle breadcrumbs={usersBreadcrumbs}>{t('Banners')}</PageTitle>
-            <DataListWrapper />
-          </>
-        } />
+        <Route path='offers/*' element={<OffersRoutsPage />} />
+        <Route path='banners/*' element={<BannersRoutsPage />} />
       </Route>
+      
       <Route index element={<Navigate to='/advertisement/offers' />} />
     </Routes>
   )

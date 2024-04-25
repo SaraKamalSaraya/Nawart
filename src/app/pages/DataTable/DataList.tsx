@@ -3,14 +3,14 @@ import { QueryRequestProvider } from './core/QueryRequestProvider'
 import { QueryResponseProvider } from './core/QueryResponseProvider'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Admins_Headers, Banners_Headers, Delivery_Men_Headers, Offers_Headers, Users_Headers } from './components/headers';
+import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns, Banners_Columns } from './components/columns'
+import { Admins_Data, Banners_Data, Delivery_Men_Data, Offers_Data, Users_Data } from './components/testData';
 import MainCustomTable from '../../modules/MainCustomTable/MainCustomTable'
 import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
 import deleteMethod from '../../../functions/deleteMethod'
 import SwalShowAlert from '../../../functions/swal/SwalShowAlert'
 import formatDate from '../../../functions/FormatDate';
-import { Admins_Data, Delivery_Men_Data, Offers_Data, Users_Data } from './components/testData';
-import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns } from './components/columns'
-import { Admins_Headers, Delivery_Men_Headers, Offers_Headers, Users_Headers } from './components/headers';
 
 
 interface Data {
@@ -53,6 +53,11 @@ const DataList = () => {
       setColumns(Offers_Columns)
       setTitle(Offers_Columns[0])
       setData(Offers_Data)
+    } else if (paramsValue === 'banners') {
+      setHeaders(Banners_Headers)
+      setColumns(Banners_Columns)
+      setTitle(Banners_Columns[1])
+      setData(Banners_Data)
     } else {
       setHeaders([])
       setColumns([])
@@ -99,7 +104,7 @@ const DataList = () => {
             <td>{index + 1}</td>
             {columns.map((column, index_number) => (
               <td key={index_number}>
-                {item[column]}
+                {column === 'image' ? <img src={item[column]} alt="Image" style={{ maxWidth: '100px' }} /> : item[column]}
               </td>
             ))}
           </tr>

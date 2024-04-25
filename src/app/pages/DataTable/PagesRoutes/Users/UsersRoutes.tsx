@@ -24,7 +24,6 @@ const usersBreadcrumbs: Array<PageLink> = [
 const UsersRoutes = () => {
   return (
     <Routes>
-
       {/* Users */}
       <Route element={<Outlet />}>
         <Route path='users/*' element={<UsersRoutsPage />} />

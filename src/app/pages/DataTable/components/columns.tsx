@@ -8,6 +8,5 @@ export const Delivery_Men_Columns = ['fullName', 'email', 'phone']
 
 
 // ----------------------------- Advertisement -----------------------------
-export const Offers_Columns = ['#', 'foodItem', 'discount', 'description', 'oldPrice', 'newPrice']
-
-
+export const Offers_Columns = ['foodItem', 'discount', 'description', 'oldPrice', 'newPrice']
+export const Banners_Columns = ['image','title', 'description', 'price']

@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import postMethod from '../../../../functions/postMethod'
 import SwalShowAlert from '../../../../functions/swal/SwalShowAlert'
-import { Admins_Inputs, Default_Inputs, Delivery_Men_Inputs, Users_Inputs } from '../components/inputs'
+import { Admins_Inputs, Banners_Inputs, Default_Inputs, Delivery_Men_Inputs, Offers_Inputs, Users_Inputs } from '../components/inputs'
 import axios from 'axios'
 
 interface FormDataInterface {
@@ -68,10 +68,28 @@ export default function InputsPage() {
       //     setFormData()
       //   })
       // }
+    } else if (paramsValue === 'offers') {
+      setInputs(Offers_Inputs)
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
+    } else if (paramsValue === 'banners') {
+      setInputs(Banners_Inputs)
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
     } else {
       setInputs([])
       setFormData({} as FormDataInterface)
     }
+    console.log(paramsValue)
+
   }, [paramsValue]);
 
 
@@ -122,26 +140,29 @@ export default function InputsPage() {
 
   // Render different input components based on type
   const renderInput = (input: Inputs) => {
-    if (input.type === 'file') {
-      return (
-        <Form.Control
-          id={input.id}
-          type="file"
-          onChange={handleFileChange}
-        />
-      );
-    } else {
-      return (
-        <Form.Control
-          id={input.id}
-          type={input.type}
-          placeholder={input.placeholder}
-          value={formData[input.id] as string}
-          onChange={handleChange}
-        />
-      );
-    }
+    return (
+      <Form.Group key={input.id} className='' style={{ width: '100%' }}>
+        <Form.Label htmlFor={input.id}>{t(`${input.label}`)}</Form.Label>
+        {input.type === 'file' ? (
+          <Form.Control
+            id={input.id}
+            type="file"
+            onChange={handleFileChange}
+          />
+        ) : (
+          <Form.Control
+            id={input.id}
+            type={input.type}
+            placeholder={t(`${input.placeholder}`)}
+            value={formData[input.id] as string}
+            onChange={handleChange}
+            min={0}
+          />
+        )}
+      </Form.Group>
+    );
   };
+  
 
   return (
     <Container className='mt-5 card p-8'>
