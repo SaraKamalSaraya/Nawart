@@ -1201,6 +1201,7 @@
   "Reservasions": "الحجوزات",
   "Checkout": "تأكيد الحجز",
   "There are no data": "لا يوجد بيانات",
-  "Pilots":"الطيارين",
-  "Pilot":"الطيار"
+  "Delivery Men":"الطيارين",
+  "Delivery Man":"الطيار",
+"The name field is required.":""
 }

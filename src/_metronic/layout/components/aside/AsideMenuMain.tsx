@@ -16,7 +16,7 @@ export function AsideMenuMain() {
       <AsideMenuItemWithSub to='/user-management' title={t('User Management')} fontIcon='bi-people'>
         <AsideMenuItem to='/user-management/admins' title='Admins' hasBullet={true} />
         <AsideMenuItem to='/user-management/users' title='User' hasBullet={true} />
-        <AsideMenuItem to='/user-management/pilots' title='Pilots' hasBullet={true} />
+        <AsideMenuItem to='/user-management/deliveryMen' title='Delivery Men' hasBullet={true} />
       </AsideMenuItemWithSub>
 
     </>

@@ -18,7 +18,7 @@ const PrivateRoutes = () => {
     goTo = '/dashboard'    
   }
 
-  const UsersRoutes = lazy(() => import('../pages/DataTable/PagesRoutes/UsersRoutes'))
+  const UsersRoutes = lazy(() => import('../pages/DataTable/PagesRoutes/Users/UsersRoutes'))
 
   return (
     <Routes>

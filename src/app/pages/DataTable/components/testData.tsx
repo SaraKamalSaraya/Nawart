@@ -39,7 +39,7 @@ export const Users_Data = [
     },
 ]
 
-export const Pilots_Data = [
+export const Delivery_Men_Data = [
     {
         id: 1,
         fullName: "mohammed",

@@ -3,7 +3,7 @@ import { QueryRequestProvider } from './core/QueryRequestProvider'
 import { QueryResponseProvider } from './core/QueryResponseProvider'
 import { KTCard } from '../../../_metronic/helpers'
 import { useEffect, useState } from 'react';
-import { Users_Columns, Admins_Columns, Pilots_Columns } from './components/columns'
+import { Users_Columns, Admins_Columns, Delivery_Men_Columns } from './components/columns'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import MainCustomTable from '../../modules/MainCustomTable/MainCustomTable'
@@ -11,8 +11,8 @@ import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
 import deleteMethod from '../../../functions/deleteMethod'
 import SwalShowAlert from '../../../functions/swal/SwalShowAlert'
 import formatDate from '../../../functions/FormatDate';
-import { Admins_Data, Pilots_Data, Users_Data } from './components/testData';
-import { Admins_Headers, Pilots_Headers, Users_Headers } from './components/headers';
+import { Admins_Data, Delivery_Men_Data, Users_Data } from './components/testData';
+import { Admins_Headers, Delivery_Men_Headers, Users_Headers } from './components/headers';
 
 
 interface Data {
@@ -28,9 +28,11 @@ const DataList = () => {
   const [title, setTitle] = useState('')
   const [data, setData] = useState<Data[]>([]);
 
-  const params = useParams();
-  const paramsValue = params['*'];
-
+  const params = window.location.pathname
+  const pathSegments = params.split('/');
+  const paramsValue = pathSegments && pathSegments.length >= 0 ? pathSegments[pathSegments.length - 1] : null;
+  
+  console.log(paramsValue)
   // Setting the data
   useEffect(() => {
     if (paramsValue === 'admins') {
@@ -43,18 +45,18 @@ const DataList = () => {
       setColumns(Users_Columns)
       setTitle(Users_Columns[0])
       setData(Users_Data)
-    } else if (paramsValue === 'pilots') {
-      setHeaders(Pilots_Headers)
-      setColumns(Pilots_Columns)
-      setTitle(Pilots_Columns[0])
-      setData(Pilots_Data)
+    } else if (paramsValue === 'delivery_Men') {
+      setHeaders(Delivery_Men_Headers)
+      setColumns(Delivery_Men_Columns)
+      setTitle(Delivery_Men_Columns[0])
+      setData(Delivery_Men_Data)
     } else {
       setHeaders([])
       setColumns([])
       setTitle('')
       setData([])
     }
-  }, [paramsValue]);
+  }, [params]);
 
   const handleDeleteAll = async (itemsToDelete: number[]) => {
     if (itemsToDelete.length > 0) {
