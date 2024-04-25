@@ -22,13 +22,13 @@ export const Users_Inputs = [
         id: "email",
         label: 'Email',
         type: "text",
-        placeholder: t('Enter Email'),
+        placeholder: 'Enter Email',
     },
     {
         id: "phone",
         label: 'Phone Number',
         type: "number",
-        placeholder: t('Enter Phone Number'),
+        placeholder: 'Enter Phone Number',
     }
 ]
 
@@ -37,13 +37,13 @@ export const Admins_Inputs = [
         id: "fullName",
         label: 'Full Name',
         type: "text",
-        placeholder: t('Enter Full Name'),
+        placeholder: 'Enter Full Name',
     },
     {
         id: "email",
         label: 'Email',
         type: "text",
-        placeholder: t('Enter Email'),
+        placeholder: 'Enter Email',
     },
 ]
 
@@ -52,13 +52,13 @@ export const Delivery_Men_Inputs = [
         id: "fullName",
         label: 'Full Name',
         type: "text",
-        placeholder: t('Enter Full Name'),
+        placeholder: 'Enter Full Name',
     },
     {
         id: "email",
         label: 'Email',
         type: "text",
-        placeholder: t('Enter Email'),
+        placeholder: 'Enter Email',
     },
 ]
 

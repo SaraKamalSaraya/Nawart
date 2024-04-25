@@ -1206,5 +1206,12 @@
   "The name field is required.":"حقل الاسم مطلوب",
   "Advertisement Management":"إدارة الإعلانات",
   "Banners":"رايات",
-  "Add Delivery Man":"اضافة طيار"
+  "Add Delivery Man":"اضافة طيار",
+  "Add Banner":"اضافة راية",
+  "Discount Percentage":"نسبة الخصم",
+  "Old Price":"السعر القديم",
+  "New Price":"السعر الجديد",
+  "Enter Discount Value":"ادخل قيمة الخصم",
+  "Discount Value":"قيمة الخصم",
+  "Add Offer":"اضف عرض"
 }
