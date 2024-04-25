@@ -3,7 +3,7 @@ import { QueryRequestProvider } from './core/QueryRequestProvider'
 import { QueryResponseProvider } from './core/QueryResponseProvider'
 import { KTCard } from '../../../_metronic/helpers'
 import { useEffect, useState } from 'react';
-import { Users_Columns, Admins_Columns, Delivery_Men_Columns } from './components/columns'
+import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns } from './components/columns'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import MainCustomTable from '../../modules/MainCustomTable/MainCustomTable'
@@ -11,8 +11,8 @@ import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
 import deleteMethod from '../../../functions/deleteMethod'
 import SwalShowAlert from '../../../functions/swal/SwalShowAlert'
 import formatDate from '../../../functions/FormatDate';
-import { Admins_Data, Delivery_Men_Data, Users_Data } from './components/testData';
-import { Admins_Headers, Delivery_Men_Headers, Users_Headers } from './components/headers';
+import { Admins_Data, Delivery_Men_Data, Offers_Data, Users_Data } from './components/testData';
+import { Admins_Headers, Delivery_Men_Headers, Offers_Headers, Users_Headers } from './components/headers';
 
 
 interface Data {
@@ -45,11 +45,16 @@ const DataList = () => {
       setColumns(Users_Columns)
       setTitle(Users_Columns[0])
       setData(Users_Data)
-    } else if (paramsValue === 'delivery_Men') {
+    } else if (paramsValue === 'deliveryMen') {
       setHeaders(Delivery_Men_Headers)
       setColumns(Delivery_Men_Columns)
       setTitle(Delivery_Men_Columns[0])
       setData(Delivery_Men_Data)
+    } else if (paramsValue === 'offers') {
+      setHeaders(Offers_Headers)
+      setColumns(Offers_Columns)
+      setTitle(Offers_Columns[0])
+      setData(Offers_Data)
     } else {
       setHeaders([])
       setColumns([])

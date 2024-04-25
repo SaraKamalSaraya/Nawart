@@ -4,7 +4,8 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import postMethod from '../../../../functions/postMethod'
 import SwalShowAlert from '../../../../functions/swal/SwalShowAlert'
-import { Admins_Inputs, Default_Inputs, Delivery_Men_Inputs, Users_Inputs } from './components/inputs'
+import { Admins_Inputs, Default_Inputs, Delivery_Men_Inputs, Users_Inputs } from '../components/inputs'
+import axios from 'axios'
 
 interface FormDataInterface {
   id: number;
@@ -18,10 +19,10 @@ interface Inputs {
   placeholder: string;
 };
 
-export default function AddPage() {
+export default function InputsPage() {
   const [formData, setFormData] = useState<FormDataInterface>({} as FormDataInterface)
   const [inputs, setInputs] = useState<Inputs[]>([]);
-  const [title, setTitle] = useState('')
+  const [pageType, setPageType] = useState('')
   const [loading, setLoading] = useState(false)
   const [ImagePreview, setImagePreview] = useState<string | null>(null)
 
@@ -29,24 +30,48 @@ export default function AddPage() {
   // const params = useParams();
   const params = window.location.pathname
   const pathSegments = params.split('/');
-  const paramsValue = pathSegments && pathSegments.length >= 2 ? pathSegments[pathSegments.length - 2] : null;
-  
+  let paramsValue = pathSegments && pathSegments.length >= 2 ? pathSegments[pathSegments.length - 2] : null;
 
   // Setting the data
   useEffect(() => {
+    // Getting Page Type
+    if (paramsValue === 'edit'){
+      paramsValue = pathSegments && pathSegments.length >= 3 ? pathSegments[pathSegments.length - 3] : null;
+      setPageType('edit')
+    } else{
+      paramsValue = pathSegments && pathSegments.length >= 2 ? pathSegments[pathSegments.length - 2] : null;
+      setPageType('add')
+    }
+
+    // Getting inputs of the Page
     if (paramsValue === 'admins') {
       setInputs(Admins_Inputs)
-      setTitle('Add Admin')
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
     } else if (paramsValue === 'users') {
       setInputs(Users_Inputs)
-      setTitle('Add User')
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
     } else if (paramsValue === 'deliveryMen') {
       setInputs(Delivery_Men_Inputs)
-      setTitle('Add Admin')
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
     } else {
       setInputs([])
+      setFormData({} as FormDataInterface)
     }
-    console.log(paramsValue)
   }, [paramsValue]);
 
 
@@ -120,7 +145,9 @@ export default function AddPage() {
 
   return (
     <Container className='mt-5 card p-8'>
-      <h2>{t(`${title}`)}</h2>
+      <h2>
+        {t('Please Enter All Data')}
+      </h2>
       <Form onSubmit={handleSubmit} className='mt-5 '>
         <div className='row w-100'>
           {/* ----------------------- Inputs -------------------- */}

@@ -2,7 +2,7 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { t } from 'i18next';
 import { PageLink, PageTitle } from '../../../../../../_metronic/layout/core';
 import { DataListWrapper } from '../../../DataList';
-import AddPage from '../../../AddPage/AddPage';
+import InputsPage from '../../../InputsPage/InputsPage';
 
 const usersBreadcrumbs: Array<PageLink> = [
   {
@@ -33,19 +33,19 @@ export default function AdminsRoutsPage() {
           path='add' element={
             <>
               <PageTitle breadcrumbs={usersBreadcrumbs}>{t('Add Admin')}</PageTitle>
-              <AddPage />
+              <InputsPage />
             </>
           }
         />
-        {/* <Route
-          path='users/edit/:id'
+        <Route
+          path='edit/:id'
           element={
             <>
               <PageTitle breadcrumbs={usersBreadcrumbs}>{t('Edit Admin')}</PageTitle>
-              <DataListWrapper />
+              <InputsPage />
             </>
           }
-        /> */}
+        />
       </Route>
     </Routes>
   );

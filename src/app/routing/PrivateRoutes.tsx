@@ -8,6 +8,7 @@ import { DashboardWrapper } from '../pages/dashboard/DashboardWrapper'
 import UserManagement from '../pages/user-management/UserManagement'
 import NoItems from '../pages/no-items/NoItems';
 import ProfilePage from '../pages/profile/ProfilePage';
+import AdvertisementRoutes from '../pages/DataTable/PagesRoutes/Advertisements/AdvertisementRoutes';
 
 const PrivateRoutes = () => {
   const { currentLocation } = useAuth();
@@ -41,18 +42,15 @@ const PrivateRoutes = () => {
           }
         />
 
-        {/* <Route path='datatable/*' element={<DataTablePage />} /> */}
-        {/* <Route path='medical-analysis/*' element={<MedicalAnalysis />} />
-        <Route path='medical-services/*' element={<MedicalServices />} />
-        <Route path='visit-a-nurse/*' element={<VisitANurse />} />
-        <Route path='vitamins/*' element={<Vitamins />} />
-        <Route path='healthcare-packages/*' element={<HealthcarePackages />} />
-        <Route path='addresses/*' element={<Addresses />} />
-        <Route path='specializations/*' element={<Specializations />} />
-        <Route path='vaccinations/*' element={<VaccinationsPage />} />
-        <Route path='radiations/*' element={<Radiations />} />
-        <Route path='business-snares/*' element={<BusinessSnaresPage />} />
-        <Route path='services/*' element={<Services />} />   */}
+        {/* Advertisement */}
+        <Route
+          path='advertisement/*'
+          element={
+            <SuspensedView>
+              <AdvertisementRoutes />
+            </SuspensedView>
+          }
+        />
 
 
         <Route path='*' element={<Navigate to='/error/404' />} />

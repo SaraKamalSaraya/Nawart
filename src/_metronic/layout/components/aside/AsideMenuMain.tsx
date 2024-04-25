@@ -19,6 +19,12 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/user-management/deliveryMen' title='Delivery Men' hasBullet={true} />
       </AsideMenuItemWithSub>
 
+      {/* إدارة العروض  */}
+      <AsideMenuItemWithSub to='/advertisement' title={t('Advertisement Management')} fontIcon='bi bi-lightning'>
+        <AsideMenuItem to='/advertisement/offers' title='Offers' hasBullet={true} />
+        <AsideMenuItem to='/advertisement/banners' title='Banners' hasBullet={true} />
+      </AsideMenuItemWithSub>
+
     </>
   )
 }
