@@ -1203,5 +1203,8 @@
   "There are no data": "لا يوجد بيانات",
   "Delivery Men":"الطيارين",
   "Delivery Man":"الطيار",
-"The name field is required.":""
+  "The name field is required.":"حقل الاسم مطلوب",
+  "Advertisement Management":"إدارة الإعلانات",
+  "Banners":"رايات",
+  "Add Delivery Man":"اضافة طيار"
 }

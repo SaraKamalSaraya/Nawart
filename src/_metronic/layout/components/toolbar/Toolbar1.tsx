@@ -23,7 +23,7 @@ const Toolbar1: FC = () => {
         className={clsx(classes.toolbarContainer.join(' '), 'd-flex flex-stack')}
       >
         <DefaultTitle />
-        <div onClick={navigateBack} className='fs-3  p-1 rounded-1 d-flex align-items-center justify-content-center cursor-pointer' style={{backgroundColor:"#0b81b9"}}><i className="bi bi-arrow-return-left text-white fs-2 bold"></i></div>
+        <div onClick={navigateBack} className='fs-3  p-1 rounded-1 d-flex align-items-center justify-content-center cursor-pointer' style={{backgroundColor:"#1085A4"}}><i className="bi bi-arrow-return-left text-white fs-2 bold"></i></div>
 
 
       </div>

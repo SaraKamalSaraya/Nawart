@@ -10,6 +10,6 @@ export default function SwalShowAlert  (icon, title) {
     title : t(title),
     showConfirmButton: true,
     confirmButtonText: t("Continue"),
-    confirmButtonColor: "#0b81b9",
+    confirmButtonColor: "#1085A4",
   });
 };

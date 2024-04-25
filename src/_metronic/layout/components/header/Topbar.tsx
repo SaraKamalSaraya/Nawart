@@ -48,7 +48,7 @@ const Topbar: FC = () => {
             backgroundColor: 'red',
             borderRadius: '50%'
           }}></div> */}
-          <i className="bi bi-bell" style={{ fontSize: '25px', color: unreadNotifications ? '#0b81b9': '' }} ></i>
+          <i className="bi bi-bell" style={{ fontSize: '25px', color: unreadNotifications ? '#1085A4': '' }} ></i>
         </div>
         <HeaderNotificationsMenu />
       </div>

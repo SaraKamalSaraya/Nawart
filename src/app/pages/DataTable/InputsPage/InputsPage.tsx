@@ -20,6 +20,13 @@ interface Inputs {
 };
 
 export default function InputsPage() {
+  const buttonStyle = {
+    background: "1085A4",
+    ':hover' : {
+        background: "red"
+    }
+  };
+
   const [formData, setFormData] = useState<FormDataInterface>({} as FormDataInterface)
   const [inputs, setInputs] = useState<Inputs[]>([]);
   const [pageType, setPageType] = useState('')
@@ -143,6 +150,7 @@ export default function InputsPage() {
     }
   };
 
+
   return (
     <Container className='mt-5 card p-8'>
       <h2>
@@ -157,9 +165,12 @@ export default function InputsPage() {
             </Form.Group>
           ))}
         </div>
-        <Button variant='primary' type='submit' disabled={loading} className='w-200px mx-4'>
+        {/* <Button type='submit' disabled={loading} className='w-200px mx-4 submit-btn'>
           {loading ? t('Loading...') : t('Submit')}
-        </Button>
+        </Button> */}
+        <button style={{backgroundColor:"#1085A4",color:"#fff"}} type='submit' disabled={loading} className='w-200px mx-4 btn'>
+          {loading ? t('Loading...') : t('Submit')}
+        </button>
       </Form>
     </Container>
   )

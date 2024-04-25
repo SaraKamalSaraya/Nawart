@@ -48322,10 +48322,10 @@ body {
 }
 .aside.aside-dark {
   /* background-color: #1e1e2d; */
-  background-color: #0b81b9;
+  background-color: #1085A4;
 }
 .aside.aside-dark .aside-logo {
-  background-color: #0b81b9;
+  background-color: #1085A4;
 }
 .aside.aside-dark .aside-toggle {
   color: #494b74;
@@ -48645,7 +48645,7 @@ body {
   color: #ffffff;
 }
 .aside-dark .menu .menu-item.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here) .menu-title, .aside-dark .menu .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-title {
-  color: #0b81b9;
+  color: #1085A4;
 }
 .aside-dark .menu .menu-item.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here) .menu-icon,
 .aside-dark .menu .menu-item.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here) .menu-icon .svg-icon,
@@ -48703,7 +48703,7 @@ body {
   color: #ffffff;
 }
 .aside-dark .menu .menu-item.show > .menu-link .menu-title {
-  color: #0b81b9;
+  color: #1085A4;
 }
 .aside-dark .menu .menu-item.show > .menu-link .menu-icon,
 .aside-dark .menu .menu-item.show > .menu-link .menu-icon .svg-icon,
@@ -48727,11 +48727,11 @@ body {
 }
 
 .aside.aside-dark {
-  background-color: #0b81b9;
+  background-color: #1085A4;
 }
 
 .aside.aside-dark .aside-logo {
-  background-color: #0b81b9;
+  background-color: #1085A4;
 }
 
 
@@ -48745,11 +48745,11 @@ body {
 }
 
 .aside.aside-dark {
-  background-color: #0b81b9;
+  background-color: #1085A4;
 }
 
 .aside.aside-dark .aside-logo {
-  background-color: #0b81b9;
+  background-color: #1085A4;
 }
 
 .aside-dark .menu .menu-item .menu-link.active .menu-title {

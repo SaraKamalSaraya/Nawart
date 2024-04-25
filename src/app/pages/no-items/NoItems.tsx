@@ -16,7 +16,7 @@ export default function NoItems() {
       <h1 className="fs-1">{t('There Is No Items')}</h1>
       <h5 className="fs-3">{t('Please Add New Item')}</h5>
 
-      <Link className="btn" style={{backgroundColor:"#0b81b9", color:"white"}} to={`/${to}/add`}>{t('Add Item')}</Link>
+      <Link className="btn" style={{backgroundColor:"#1085A4", color:"white"}} to={`/${to}/add`}>{t('Add Item')}</Link>
     </section>
     </>
   )

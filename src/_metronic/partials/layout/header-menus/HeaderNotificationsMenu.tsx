@@ -36,7 +36,7 @@ const HeaderNotificationsMenu: FC = () => (
   >
     <div
       className='d-flex flex-column bgi-no-repeat rounded-top'
-      style={{ backgroundColor:'#0B81B9' }}
+      style={{ backgroundColor:'#1085A4' }}
     >
       <h3 className='text-white fw-bold px-9 mt-5 mb-5'>
         الحجوزات
@@ -52,7 +52,7 @@ const HeaderNotificationsMenu: FC = () => (
               <div className='d-flex align-items-center'>
               <div className='symbol symbol-35px ms-4'>
                   <span className={clsx('symbol-label')}
-                  style={{color: notification.state === 'new'? '#0B81B9' : '', fontWeight: 'bold'}}
+                  style={{color: notification.state === 'new'? '#1085A4' : '', fontWeight: 'bold'}}
                   >
                     {notification.state}
                   </span>

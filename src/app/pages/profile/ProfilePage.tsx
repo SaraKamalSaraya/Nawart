@@ -122,7 +122,7 @@ const ProfileBody = ({ currentUser }: any) => {
           <div className="card-title m-0">
             <h3 className="fw-bold m-0">{t('Profile Details')}</h3>
           </div>
-          <div onClick={handelCanecel} style={{backgroundColor: isEdit ? 'red' : '#0b81b9'}} className={`btn btn-sm text-white align-self-center cursor-pointer`} >{isEdit ? t('Cancel') : t('Edit Profile')}</div>
+          <div onClick={handelCanecel} style={{backgroundColor: isEdit ? 'red' : '#1085A4'}} className={`btn btn-sm text-white align-self-center cursor-pointer`} >{isEdit ? t('Cancel') : t('Edit Profile')}</div>
         </div>
         <div className="card-body p-9">
           <div className="row mb-6">
@@ -166,7 +166,7 @@ const ProfileBody = ({ currentUser }: any) => {
         
         </div>
         {
-          isEdit && <button type="button" disabled={loading} style={{  margin: "auto",backgroundColor: '#0b81b9', }} className="btn text-white my-10 w-200px float-end" onClick={handleSubmit}>{ loading ? t('Loading...') : t('Save Changes')}</button>
+          isEdit && <button type="button" disabled={loading} style={{  margin: "auto",backgroundColor: '#1085A4', }} className="btn text-white my-10 w-200px float-end" onClick={handleSubmit}>{ loading ? t('Loading...') : t('Save Changes')}</button>
         }
       </div>
 

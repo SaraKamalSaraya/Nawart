@@ -16,19 +16,19 @@ export const Users_Inputs = [
         id: "fullName",
         label: t('Full Name'),
         type: "text",
-        placeholder: t('Enter Full Name'),
+        placeholder: t('ادخل الاسم بالكامل'),
     },
     {
         id: "email",
         label: t('Email'),
         type: "text",
-        placeholder: t('Enter Email'),
+        placeholder: t('ادخل البريد الالكتروني'),
     },
     {
         id: "phone",
         label: t('Phone Number'),
         type: "number",
-        placeholder: t('Enter Phone Number'),
+        placeholder: t('ادخل رقم الهاتف'),
     }
 ]
 
@@ -37,13 +37,13 @@ export const Admins_Inputs = [
         id: "fullName",
         label: t('Full Name'),
         type: "text",
-        placeholder: t('Enter Full Name'),
+        placeholder: t('ادخل الاسم بالكامل'),
     },
     {
         id: "email",
         label: t('Email'),
         type: "text",
-        placeholder: t('Enter Email'),
+        placeholder: t('ادخل البريد الالكتروني'),
     },
 ]
 
@@ -52,13 +52,13 @@ export const Delivery_Men_Inputs = [
         id: "fullName",
         label: t('Full Name'),
         type: "text",
-        placeholder: t('Enter Full Name'),
+        placeholder: t('ادخل الاسم بالكامل'),
     },
     {
         id: "email",
         label: t('Email'),
         type: "text",
-        placeholder: t('Enter Email'),
+        placeholder: t('ادخل البريد الالكتروني'),
     },
 ]
 
