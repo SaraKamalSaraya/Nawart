@@ -5136,9 +5136,13 @@ textarea.form-control-lg {
 }
 .page-item.active .page-link {
   z-index: 3;
-  color: #ffffff;
-  background-color: #3699ff;
+  color: #fff;
+  background-color: #1085A4;
   border-color: transparent;
+}
+.page-item.active .page-link:hover{
+  color: #ffffff !important;
+  cursor: pointer;
 }
 .page-item.disabled .page-link {
   color: #474761;

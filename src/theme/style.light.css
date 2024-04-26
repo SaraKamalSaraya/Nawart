@@ -5136,8 +5136,12 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #ffffff;
-  background-color: #009ef7;
+  background-color: #1085A4 !important;
   border-color: transparent;
+}
+.page-item.active .page-link:hover{
+  color: #ffffff !important;
+  cursor: pointer;
 }
 .page-item.disabled .page-link {
   color: #b5b5c3;
@@ -33785,6 +33789,12 @@ a:hover {
 .menu-item .menu-link .menu-icon .svg-icon {
   line-height: 1;
 }
+.menu-item .menu-link:hover .menu-icon{
+  color: #1085A4 !important;
+}  
+.menu-item.show .menu-link .menu-icon{
+  color: #1085A4 !important;
+}  
 .menu-item .menu-link .menu-bullet {
   flex-shrink: 0;
   display: flex;
