@@ -4,13 +4,21 @@ import { useIntl } from 'react-intl'
 import { AsideMenuItemWithSub } from './AsideMenuItemWithSub'
 import { AsideMenuItem } from './AsideMenuItem'
 import { t } from 'i18next'
+import './style.css'
 
 export function AsideMenuMain() {
   const intl = useIntl()
 
   return (
     <>
+      {/* لوحة التحكم */}
       <AsideMenuItem to='/dashboard' title={t('Dashboard')} fontIcon='bi-app-indicator' />
+      {/* الطلبات */}
+      <AsideMenuItem to='/orders/all' title={t('Orders')} fontIcon='bi bi-pin-angle-fill' />
+      {/* الفواتير */}
+      <AsideMenuItem to='/bills' title={t('Bills')} fontIcon='bi bi-currency-dollar' />
+
+      <br />
 
       {/* إدارة المستخدمين  */}
       <AsideMenuItemWithSub to='/user-management' title={t('User Management')} fontIcon='bi-people'>
@@ -23,6 +31,12 @@ export function AsideMenuMain() {
       <AsideMenuItemWithSub to='/advertisement' title={t('Advertisement Management')} fontIcon='bi bi-lightning'>
         <AsideMenuItem to='/advertisement/offers' title='Offers' hasBullet={true} />
         <AsideMenuItem to='/advertisement/banners' title='Banners' hasBullet={true} />
+      </AsideMenuItemWithSub>
+
+      {/* قائمة الطعام */}
+      <AsideMenuItemWithSub to='/menu' title={t('Food Menu')} fontIcon='bi bi-egg-fried'>
+        <AsideMenuItem to='/menu/categories' title='Categories' hasBullet={true} />
+        <AsideMenuItem to='/menu/foodItems' title='Food Items' hasBullet={true} />
       </AsideMenuItemWithSub>
 
     </>

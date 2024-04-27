@@ -11,4 +11,11 @@ export const Offers_Headers = ['#', 'Food Item', 'Discount Percentage', 'Descrip
 export const Banners_Headers = ['#', 'Image', 'Title', 'Description', 'Price']
 
 
+// ----------------------------- Menu -----------------------------
+export const Categories_Headers = ['#', 'Image', 'Title', 'Food Items','Banner']
+export const Food_Items_Headers = ['#', 'Image', 'Title', 'Description', 'Base Price', 'Sizes', 'Supplements']
+
+
+// ----------------------------- Order -----------------------------
+export const Order_Headers = ['#','Status', 'Food Item', 'Size', 'Supplements','Price']
 

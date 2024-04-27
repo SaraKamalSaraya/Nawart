@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import postMethod from '../../../../functions/postMethod'
 import SwalShowAlert from '../../../../functions/swal/SwalShowAlert'
-import { Admins_Inputs, Banners_Inputs, Default_Inputs, Delivery_Men_Inputs, Offers_Inputs, Users_Inputs } from '../components/inputs'
+import { Admins_Inputs, Banners_Inputs, Categories_Inputs, Default_Inputs, Delivery_Men_Inputs, Food_Items_Inputs, Offers_Inputs, Order_Inputs, Users_Inputs } from '../components/inputs'
 import axios from 'axios'
 
 interface FormDataInterface {
@@ -85,6 +85,30 @@ export default function InputsPage() {
       // }
     } else if (paramsValue === 'banners') {
       setInputs(Banners_Inputs)
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
+    } else if (paramsValue === 'categories') {
+      setInputs(Categories_Inputs)
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
+    } else if (paramsValue === 'foodItems') {
+      setInputs(Food_Items_Inputs)
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
+    } else if (paramsValue === 'all') { // Order
+      setInputs(Order_Inputs)
       // if (pageType === 'edit'){
       //   axios.get('')
       //   .then(res=>{

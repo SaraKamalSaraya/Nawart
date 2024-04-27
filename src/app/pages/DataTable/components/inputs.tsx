@@ -113,5 +113,98 @@ export const Banners_Inputs = [
     },
 ]
 
+// ----------------------------- Menu -----------------------------
+export const Categories_Inputs = [
+    {
+        id: "image",
+        label: 'Image',
+        type: "file",
+        placeholder: 'Add Image',
+    },
+    {
+        id: "title",
+        label: 'Title',
+        type: "text",
+        placeholder: 'Enter Title',
+    },
+    {
+        id: "banner",
+        label: 'Banner',
+        type: "select",
+        placeholder: 'Enter Banner',
+    },
+    {
+        id: "foodItems",
+        label: 'Food Items',
+        type: "select",
+        placeholder: 'Enter Food Items',
+    },
+]
+
+export const Food_Items_Inputs = [
+    {
+        id: "image",
+        label: 'Image',
+        type: "file",
+        placeholder: 'Add Image',
+    },
+    {
+        id: "title",
+        label: 'Title',
+        type: "text",
+        placeholder: 'Enter Title',
+    },
+    {
+        id: "description",
+        label: 'Description',
+        type: "text",
+        placeholder: 'Enter Description',
+    },
+    {
+        id: "basePrice",
+        label: 'Base Price',
+        type: "number",
+        placeholder: 'Enter Base Price',
+    },
+    {
+        id: "sizes",
+        label: 'Sizes',
+        type: "number",
+        placeholder: 'Enter Sizes',
+    },
+    {
+        id: "supplements",
+        label: 'Supplements',
+        type: "text",
+        placeholder: 'Enter Supplements',
+    },
+]
 
 
+// ----------------------------- Order -----------------------------
+export const Order_Inputs = [
+    {
+        id: "status",
+        label: 'Status',
+        type: "select",
+        placeholder: 'Choose status',
+    },
+    {
+        id: "foodItem",
+        label: 'Food Items',
+        type: "select",
+        placeholder: 'Choose Food Items',
+    },
+    {
+        id: "size",
+        label: 'Size',
+        type: "select",
+        placeholder: 'Choose Size',
+    },
+    {
+        id: "supplements",
+        label: 'Supplements',
+        type: "select",
+        placeholder: 'Choose Supplements',
+    },
+]

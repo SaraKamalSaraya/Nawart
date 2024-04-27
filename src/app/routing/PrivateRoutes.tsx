@@ -5,18 +5,19 @@ import TopBarProgress from 'react-topbar-progress-indicator';
 import { getCSSVariableValue } from '../../_metronic/assets/ts/_utils';
 import { useAuth } from '../modules/auth';
 import { DashboardWrapper } from '../pages/dashboard/DashboardWrapper'
-import UserManagement from '../pages/user-management/UserManagement'
 import NoItems from '../pages/no-items/NoItems';
 import ProfilePage from '../pages/profile/ProfilePage';
 import AdvertisementRoutes from '../pages/DataTable/PagesRoutes/Advertisements/AdvertisementRoutes';
+import MenuRoutes from '../pages/DataTable/PagesRoutes/Menu/MenuRoutes';
+import OrdersRouts from '../pages/DataTable/PagesRoutes/Orders/OrderRoutes';
 
 const PrivateRoutes = () => {
   const { currentLocation } = useAuth();
-  let goTo 
+  let goTo
   if (currentLocation) {
-      currentLocation  == "/auth" ? goTo = "/dashboard" : goTo = currentLocation
+    currentLocation == "/auth" ? goTo = "/dashboard" : goTo = currentLocation
   } else {
-    goTo = '/dashboard'    
+    goTo = '/dashboard'
   }
 
   const UsersRoutes = lazy(() => import('../pages/DataTable/PagesRoutes/Users/UsersRoutes'))
@@ -26,11 +27,11 @@ const PrivateRoutes = () => {
       <Route element={<MasterLayout />}>
         <Route path='auth/*' element={<Navigate to={goTo} />} />
 
+        {/* Base Pages */}
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='profile/*' element={<ProfilePage />} />
-        <Route  path='no-items' element={<NoItems />} />
+        <Route path='no-items' element={<NoItems />} />
 
-        {/* <Route path='user-management/*' element={<UserManagement />} /> */}
 
         {/* Users */}
         <Route
@@ -52,6 +53,25 @@ const PrivateRoutes = () => {
           }
         />
 
+        {/* Menu */}
+        <Route
+          path='menu/*'
+          element={
+            <SuspensedView>
+              <MenuRoutes />
+            </SuspensedView>
+          }
+        />
+
+        {/* Orders */}
+        <Route
+          path='orders/*'
+          element={
+            <SuspensedView>
+              <OrdersRouts />
+            </SuspensedView>
+          }
+        />
 
         <Route path='*' element={<Navigate to='/error/404' />} />
       </Route>
