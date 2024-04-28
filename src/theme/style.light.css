@@ -33862,6 +33862,14 @@ a:hover {
   transform: rotateZ(-90deg);
 }
 
+.menu-item.menu-accordion.show .menu-title{
+  color: #fff !important;
+}
+
+#kt_wrapper .card .add-btn{
+  color: #fff !important;
+}
+
 .menu-sub-dropdown {
   display: none;
   border-radius: 0.475rem;
@@ -33875,6 +33883,10 @@ a:hover {
 }
 .show.menu-dropdown > .menu-sub-dropdown[data-popper-placement=top], .show.menu-dropdown > .menu-sub-dropdown[data-popper-placement=top-start], .show.menu-dropdown > .menu-sub-dropdown[data-popper-placement=top-end], .menu-sub-dropdown.menu.show[data-popper-placement=top], .menu-sub-dropdown.menu.show[data-popper-placement=top-start], .menu-sub-dropdown.menu.show[data-popper-placement=top-end], .menu-sub-dropdown.show[data-popper-placement][data-popper-placement=top], .menu-sub-dropdown.show[data-popper-placement][data-popper-placement=top-start], .menu-sub-dropdown.show[data-popper-placement][data-popper-placement=top-end] {
   animation: menu-sub-dropdown-animation-fade-in 0.3s ease 1, menu-sub-dropdown-animation-move-down 0.3s ease 1;
+}
+.menu-sub-dropdown .tab-pane .show-all-notification,
+.menu-sub-dropdown .tab-pane .show-all-notification .svg-icon-5 {
+  color: #1085A4 !important;
 }
 
 .menu-sub-accordion {
@@ -48456,6 +48468,9 @@ body {
   padding-left: 25px;
   padding-right: 25px;
 }
+.aside-menu .menu-link:hover .menu-title{
+  color: #fff !important;
+}
 .aside-menu .menu .menu-sub:not([data-popper-placement]) > .menu-item > .menu-content,
 .aside-menu .menu .menu-sub:not([data-popper-placement]) > .menu-item > .menu-link,
 .aside-menu .menu .menu-sub:not([data-popper-placement]) > .menu-inner > .menu-item > .menu-content,
@@ -49081,4 +49096,44 @@ body {
 .card.card-docs {
   background-color: #ffffff;
   border: 0;
+}
+
+.profile-card .profile-card-body .form-control{
+  width: 40% !important;
+}
+.profile-card .profile-card-body [type="file"]{
+  margin-top: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .profile-card .profile-card-body .form-control{
+    width: 70% !important;
+  }
+  .profile-card .profile-card-body [type="file"]{
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .profile-card .profile-card-body .form-control{
+    width: 50% !important;
+  }
+  .profile-card .profile-card-body [type="file"]{
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .profile-card .profile-card-body .form-control{
+    width: 100% !important;
+  }
+  .profile-card .profile-card-body [type="file"]{
+    margin-top: 1rem;
+  }
+}
+
+#kt_login_signin_form #kt_sign_in_submit:hover{
+  background-color: transparent !important;
+  border: 2px solid #1085A4;
+  color: #1085A4 !important;
 }
