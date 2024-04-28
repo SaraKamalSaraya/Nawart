@@ -109,6 +109,7 @@ const DataList = () => {
         showAdd={true}
         showEdit={true}
         showDelete={true}
+        showSendNotification={paramsValue === 'all' ? true : false}
         showPagination={true}
         showSearch={true}
         onDelete={handleDeleteAll}

@@ -45,23 +45,23 @@ export function Login() {
       try {
         const response = await login(values.email, values.password) as any;
 
-        saveAuth({
-          access_token: response.data?.access_token,
-        });
-        saveCurrentUser(response.data?.user);
+        // saveAuth({
+        //   access_token: response.data?.access_token,
+        // });
+        // saveCurrentUser(response.data?.user);
 
         // sign in as fake data 
-        //  saveAuth({
-        //   access_token: 'fake_jwt_token',
-        //  });
-        //  saveCurrentUser({
-        //   id: 1,
-        //   name: 'Admin',
-        //   email: 'ms@gmail.com',
-        //   thumbnail_url: 'https://avatars.dicebear.com/v2/avataaars/example.svg?options[mood][]=happy',
-        //   role: 0,
-        //   password: '123456789',
-        //  });
+         saveAuth({
+          access_token: 'fake_jwt_token',
+         });
+         saveCurrentUser({
+          id: 1,
+          name: 'Admin',
+          email: 'ms@gmail.com',
+          thumbnail_url: 'https://avatars.dicebear.com/v2/avataaars/example.svg?options[mood][]=happy',
+          role: 0,
+          password: '123456789',
+         });
          
       } catch (error) {
         console.error(error);

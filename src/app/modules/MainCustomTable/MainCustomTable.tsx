@@ -1,7 +1,10 @@
 import { t } from "i18next";
 import React, { useState } from "react";
-import { Dropdown, Pagination, Spinner } from "react-bootstrap";
+import { Dropdown, Form, Pagination, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { KTSVG } from "../../../_metronic/helpers";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 interface TableProps {
   headers: string[];
@@ -12,7 +15,7 @@ interface TableProps {
   showDelete?: boolean;
   showPagination?: boolean;
   showSearch?: boolean;
-  showView?: boolean;
+  showSendNotification?: boolean;
   data: any[]
 }
 
@@ -25,7 +28,7 @@ const MainCustomTable: React.FC<TableProps> = ({
   showDelete = false,
   showPagination = false,
   showSearch = false,
-  showView = false,
+  showSendNotification = false,
   data = []
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -105,13 +108,12 @@ const MainCustomTable: React.FC<TableProps> = ({
   };
 
 
-  const handleView = async (id: number) => {
-    navigate(`${id}`)
-  }
 
   setTimeout(() => {
     setLoading(false)
   }, 2000);
+
+  const [showModal, setShowModal] = useState(false)
   return (
     <div className='card p-4 ' style={{ minHeight: '80vh' }}>
       <div className="d-flex flex-stack mb-5">
@@ -183,7 +185,7 @@ const MainCustomTable: React.FC<TableProps> = ({
                           <i className="bi bi-three-dots text-primary" style={{ margin: 'auto' }} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                          {showView && <button className="dropdown-item btn my-2 text-info w-100" onClick={() => handleView(item.props.id)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>{t('View')} <i className="bi bi-pencil ms-2 text-info" /></button>}
+                          {showSendNotification && <button className="dropdown-item btn my-2 text-info w-100" onClick={() => setShowModal(true)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>{t('Send Notification')} <i className="bi bi-pencil ms-2 text-info" /></button>}
                           {showEdit && <button className="dropdown-item btn my-2 text-success w-100" onClick={() => handleEdit(item.props.id)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>{t('Edit')} <i className="bi bi-pencil ms-2 text-success" /></button>}
                           {showDelete && <button className="dropdown-item btn text-danger w-100" onClick={() => handleDelete(item.props.id)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: "center" }}>{t('Delete')} <i className="bi bi-trash ms-2 text-danger" /></button>}
                         </Dropdown.Menu>
@@ -199,9 +201,6 @@ const MainCustomTable: React.FC<TableProps> = ({
       {loading && (
         <div className="d-flex justify-content-center align-items-center" style={{ height: '50vh' }}>
           <span className="loader"></span>
-          {/* <Spinner animation="border" role="status">
-                <span className="visually-hidden">{t('Loading...')}</span>
-              </Spinner> */}
         </div>
       )}
       {!loading && showPagination && (
@@ -213,6 +212,70 @@ const MainCustomTable: React.FC<TableProps> = ({
           ))}
         </Pagination>
       )}
+
+      {showModal &&
+        <>
+          <div className='modal fade show d-block' id='kt_modal_add_user' role='dialog' tabIndex={-1} aria-modal='true'>
+            <div className='modal-dialog modal-dialog-centered mw-650px'>
+              <div className='modal-content'>
+                <div className='modal-header'>
+                  <h2 className='fw-bolder'> {t('Choose Notification Type')} </h2>
+                  <div
+                    className='btn btn-icon btn-sm btn-active-icon-primary'
+                    data-kt-users-modal-action='close'
+                    onClick={() => setShowModal(false)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
+                  </div>
+                </div>
+                <div className='modal-body scroll-y mx-5 mx-xl-15'>
+                  <Form >
+                    <Form.Group className='' style={{ width: '100%' }}>
+                      <Form.Label htmlFor='notification'>{t(`Notification Type`)}</Form.Label>
+                      <Form.Select
+                        id='notification'
+                      >
+                        <option value='value1'> value1 </option>
+                        <option value='value2'> value2 </option>
+                        <option value='value3'> value3 </option>
+                      </Form.Select>
+                    </Form.Group>
+                    <br />
+                    <Form.Group className='' style={{ width: '100%' }}>
+                      <Form.Label htmlFor='note'>{t(`Note`)}</Form.Label>
+                      <Form.Control
+                        id='note'
+                        type="textarea"
+                        placeholder={t(`Enter Note`)}
+                      />
+                    </Form.Group>
+
+                    <div className='d-flex my-5'>
+                      <Button
+                        type='submit'
+                        className='btn btn-primary w-100 mb-5 mx-4'
+                      // onClick={(e) => handleClickSave(e, newData.id === 0 ? 'new' : 'edit')}
+                      >
+                        {t('Send')}
+                      </Button>
+                      <Button
+                        type='button'
+                        className='btn btn-light w-50 mb-5 mx-4'
+                        onClick={() => setShowModal(false)}
+                      >
+                        {t('Close')}
+                      </Button>
+                    </div>
+                  </Form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='modal-backdrop fade show'></div>
+        </>
+      }
+
 
     </div>
   );

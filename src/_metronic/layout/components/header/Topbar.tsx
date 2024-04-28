@@ -55,17 +55,12 @@ const Topbar: FC = () => {
 
 
       {/* Toggle theme */}
-      <div className="d-flex align-items-center" style={{ marginInline: '20px' }}>
-        {/*begin::Menu toggle*/}
+      {/* <div className="d-flex align-items-center" style={{ marginInline: '20px' }}>
         <a href="#" className="btn btn-icon btn-icon-muted btn-active-icon-primar ms-1 " data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-          {/* <KTSVG path="/media/icons/duotune/abstract/abs013.svg" className="svg-icon svg-icon-2x" /> */}
           <i className="las la-sun" style={{ fontSize: '25px' }} ></i>
         </a>
-        {/*begin::Menu toggle*/}
 
-        {/*begin::Menu*/}
         <div className="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu" style={{}}>
-          {/*begin::Menu item*/}
           <div className="menu-item  my-0 dropdown-item ">
             <a href="#" className="menu-link px-3 py-2 " onClick={() => handleTheme('light')} data-kt-element="mode" data-kt-value="light">
               <span className="menu-icon" data-kt-element="icon">
@@ -74,9 +69,7 @@ const Topbar: FC = () => {
               {t('Light Theme')}
             </a>
           </div>
-          {/*end::Menu item*/}
 
-          {/*begin::Menu item*/}
           <div className="menu-item my-0 dropdown-item" >
             <div className="menu-link px-3 py-2" onClick={() => handleTheme('dark')} data-kt-element="mode" data-kt-value="dark">
               <span className="menu-icon" data-kt-element="icon">
@@ -87,10 +80,8 @@ const Topbar: FC = () => {
               </span>
             </div>
           </div>
-          {/*end::Menu item*/}
         </div>
-        {/*end::Menu*/}
-      </div>
+      </div> */}
       {/* end Toggle theme */}
 
 
