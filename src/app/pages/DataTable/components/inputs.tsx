@@ -70,7 +70,7 @@ export const Offers_Inputs = [
         id: "foodItem",
         label: 'Food Item',
         type: "select",
-        placeholder: 'Enter Food Item',
+        placeholder: 'Choose Food Item',
     },
     {
         id: "discount",
@@ -131,13 +131,13 @@ export const Categories_Inputs = [
         id: "banner",
         label: 'Banner',
         type: "select",
-        placeholder: 'Enter Banner',
+        placeholder: 'Choose Banner',
     },
     {
         id: "foodItems",
         label: 'Food Items',
         type: "select",
-        placeholder: 'Enter Food Items',
+        placeholder: 'Choose Food Item',
     },
 ]
 

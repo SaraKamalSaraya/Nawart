@@ -85,7 +85,7 @@ const HeaderNotificationsMenu: FC = () => (
         <div className='py-3 text-center border-top'>
           <Link
             to='/reservations'
-            className='btn btn-color-gray-600 btn-active-color-primary'
+            className='btn btn-color-gray-600 btn-active-color-primary show-all-notification'
           >
             عرض الكل
             <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-5' />

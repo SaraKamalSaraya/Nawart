@@ -134,7 +134,7 @@ const MainCustomTable: React.FC<TableProps> = ({
           {showAdd && (
             <div className="d-flex justify-content-end" data-kt-docs-table-toolbar="base">
               <div>
-                <Link to={'add'} className="btn" style={{ backgroundColor: "#1085A4", color: "white" }}>{t('Add')}</Link>
+                <Link to={'add'} className="btn add-btn" style={{ backgroundColor: "#1085A4", color: "white" }}>{t('Add')}</Link>
               </div>
             </div>
           )}

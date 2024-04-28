@@ -1217,7 +1217,7 @@
   "Enter Full Name": "ادخل الاسم",
   "Food Menu": "قائمة الطعام",
   "Food Items": "الأطباق",
-  "Bills": "الفواتير",
+  "Invoices": "الفواتير",
   "Food Item": "الطبق",
   "Size": "الحجم",
   "Supplements": "الإضافات",
@@ -1226,5 +1226,11 @@
   "Choose Supplements": "اختر الإضافات",
   "Enter Base Price":"ادخل السعر الأساسي",
   "Add Food Item":"إضافة طبق",
-  "Edit Food Item":"تعديل طبق"
+  "Edit Food Item":"تعديل طبق",
+  "Food Order":"الطلب",
+  "Add Invoice":"اضف فاتورة",
+  "Choose order":"اختر الطلب",
+  "Banner":"راية",
+  "Enter Banner":"ادخل راية",
+  "Choose Banner":"اختر راية"
 }

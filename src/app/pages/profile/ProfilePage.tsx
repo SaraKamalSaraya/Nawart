@@ -115,7 +115,7 @@ const ProfileBody = ({ currentUser }: any) => {
   return (
     <>
 
-      <div className="card mb-5 mb-xl-10" id="kt_profile_details_view">
+      <div className="card mb-5 mb-xl-10 profile-card" id="kt_profile_details_view">
 
 
         <div className="card-header cursor-pointer">
@@ -124,7 +124,7 @@ const ProfileBody = ({ currentUser }: any) => {
           </div>
           <div onClick={handelCanecel} style={{backgroundColor: isEdit ? 'red' : '#1085A4'}} className={`btn btn-sm text-white align-self-center cursor-pointer`} >{isEdit ? t('Cancel') : t('Edit Profile')}</div>
         </div>
-        <div className="card-body p-9">
+        <div className="card-body p-9 profile-card-body">
           <div className="row mb-6">
             <label className="col-lg-4 col-form-label fw-semibold fs-6">{t('Image')}</label>
 
