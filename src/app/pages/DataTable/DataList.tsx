@@ -3,9 +3,9 @@ import { QueryRequestProvider } from './core/QueryRequestProvider'
 import { QueryResponseProvider } from './core/QueryResponseProvider'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Admins_Headers, Banners_Headers, Categories_Headers, Delivery_Men_Headers, Food_Items_Headers, Offers_Headers, Order_Headers, Users_Headers } from './components/headers';
-import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns, Banners_Columns, Categories_Columns, Food_Items_Columns, Order_Columns } from './components/columns'
-import { Admins_Data, Banners_Data, Categories_Data, Delivery_Men_Data, Food_Items_Data, Offers_Data, Order_Data, Users_Data } from './components/testData';
+import { Admins_Headers, Banners_Headers, Categories_Headers, Delivery_Men_Headers, Food_Items_Headers, Offers_Headers, Order_Headers, Users_Headers, Invoice_Headers } from './components/headers';
+import { Users_Columns, Admins_Columns, Delivery_Men_Columns, Offers_Columns, Banners_Columns, Categories_Columns, Food_Items_Columns, Order_Columns, Invoice_Columns } from './components/columns'
+import { Admins_Data, Banners_Data, Categories_Data, Delivery_Men_Data, Food_Items_Data, Offers_Data, Order_Data, Users_Data, Invoice_Data } from './components/testData';
 import MainCustomTable from '../../modules/MainCustomTable/MainCustomTable'
 import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
 import deleteMethod from '../../../functions/deleteMethod'
@@ -73,6 +73,11 @@ const DataList = () => {
       setColumns(Order_Columns)
       setTitle(Order_Columns[1])
       setData(Order_Data)
+    } else if (paramsValue === 'invoices') { // ---- Invoices
+      setHeaders(Invoice_Headers)
+      setColumns(Invoice_Columns)
+      setTitle(Invoice_Columns[0])
+      setData(Invoice_Data)
     } else {
       setHeaders([])
       setColumns([])
@@ -117,10 +122,10 @@ const DataList = () => {
             style={{ backgroundColor: index % 2 === 0 ? 'white' : '#eef9fa' }}
           >
             <td>{index + 1}</td>
-            {columns.map((column, index_number) => (
+            {columns?.map((column, index_number) => (
               <td key={index_number}>
                 {column === 'image' ? <img src={item[column]} alt="Image" style={{ maxWidth: '100px' }} /> : 
-                (item[column].length > 15 ? item[column].substring(0, 15) + ' ...' : item[column])
+                (item[column]?.length > 15 ? item[column].substring(0, 15) + ' ...' : item[column])
                 }
               </td>
             ))}

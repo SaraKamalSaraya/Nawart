@@ -208,3 +208,19 @@ export const Order_Inputs = [
         placeholder: 'Choose Supplements',
     },
 ]
+
+// ----------------------------- Invoices -----------------------------
+export const Invoice_Inputs = [
+    {
+        id: "foodOrder",
+        label: 'Food Order',
+        type: "select",
+        placeholder: 'Choose order',
+    },
+    {
+        id: "price",
+        label: 'Price',
+        type: "select",
+        placeholder: 'Enter Price',
+    },
+]

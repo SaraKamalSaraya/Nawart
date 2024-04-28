@@ -19,3 +19,7 @@ export const Food_Items_Headers = ['#', 'Image', 'Title', 'Description', 'Base P
 // ----------------------------- Order -----------------------------
 export const Order_Headers = ['#','Status', 'Food Item', 'Size', 'Supplements','Price']
 
+
+// ----------------------------- Invoices -----------------------------
+export const Invoice_Headers = ['#','Food Order', 'Price']
+

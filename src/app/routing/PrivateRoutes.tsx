@@ -10,6 +10,7 @@ import ProfilePage from '../pages/profile/ProfilePage';
 import AdvertisementRoutes from '../pages/DataTable/PagesRoutes/Advertisements/AdvertisementRoutes';
 import MenuRoutes from '../pages/DataTable/PagesRoutes/Menu/MenuRoutes';
 import OrdersRouts from '../pages/DataTable/PagesRoutes/Orders/OrderRoutes';
+import InvoicesRouts from '../pages/DataTable/PagesRoutes/Invoices/InvoicesRouts';
 
 const PrivateRoutes = () => {
   const { currentLocation } = useAuth();
@@ -69,6 +70,16 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <OrdersRouts />
+            </SuspensedView>
+          }
+        />
+
+          {/* Invoices */}
+          <Route
+          path='invoices/*'
+          element={
+            <SuspensedView>
+              <InvoicesRouts />
             </SuspensedView>
           }
         />

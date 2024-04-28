@@ -167,3 +167,17 @@ export const Order_Data = [
         price: 300
     }
 ]
+
+// ----------------------------- Invoices -----------------------------
+export const Invoice_Data = [
+    {
+        id:1,
+        foodOrder: 'pizza',
+        price: 350
+    },
+    {
+        id:2,
+        foodOrder: 'checken burger',
+        price: 400
+    }
+]

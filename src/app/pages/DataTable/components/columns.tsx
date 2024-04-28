@@ -18,3 +18,6 @@ export const Food_Items_Columns = ['image','title', 'description', 'basePrice', 
 
 // ----------------------------- Order -----------------------------
 export const Order_Columns = ['status', 'foodItem', 'size', 'supplements','price']
+
+// ----------------------------- Order -----------------------------
+export const Invoice_Columns = ['foodOrder', 'price']

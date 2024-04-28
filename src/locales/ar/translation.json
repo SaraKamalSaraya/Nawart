@@ -1217,5 +1217,9 @@
   "Enter Full Name":"ادخل الاسم",
   "Food Menu":"قائمة الطعام",
   "Food Items":"الأطباق",
-  "Bills":"الفواتير"
+  "Invoices":"الفواتير",
+  "Food Order":"الطلب",
+  "Add Invoice":"اضف فاتورة",
+  "Edit Invoice":"تعديل فاتوة",
+  "Choose order":"اختر الطلب"
 }

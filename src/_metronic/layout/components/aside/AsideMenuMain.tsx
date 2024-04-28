@@ -16,7 +16,7 @@ export function AsideMenuMain() {
       {/* الطلبات */}
       <AsideMenuItem to='/orders/all' title={t('Orders')} fontIcon='bi bi-pin-angle-fill' />
       {/* الفواتير */}
-      <AsideMenuItem to='/bills' title={t('Bills')} fontIcon='bi bi-currency-dollar' />
+      <AsideMenuItem to='/invoices/invoices' title={t('Invoices')} fontIcon='bi bi-currency-dollar' />
 
       <br />
 

@@ -4,7 +4,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import postMethod from '../../../../functions/postMethod'
 import SwalShowAlert from '../../../../functions/swal/SwalShowAlert'
-import { Admins_Inputs, Banners_Inputs, Categories_Inputs, Default_Inputs, Delivery_Men_Inputs, Food_Items_Inputs, Offers_Inputs, Order_Inputs, Users_Inputs } from '../components/inputs'
+import { Admins_Inputs, Banners_Inputs, Categories_Inputs, Default_Inputs, Delivery_Men_Inputs, Food_Items_Inputs, Invoice_Inputs, Offers_Inputs, Order_Inputs, Users_Inputs } from '../components/inputs'
 import axios from 'axios'
 
 interface FormDataInterface {
@@ -20,13 +20,6 @@ interface Inputs {
 };
 
 export default function InputsPage() {
-  const buttonStyle = {
-    background: "1085A4",
-    ':hover' : {
-        background: "red"
-    }
-  };
-
   const [formData, setFormData] = useState<FormDataInterface>({} as FormDataInterface)
   const [inputs, setInputs] = useState<Inputs[]>([]);
   const [pageType, setPageType] = useState('')
@@ -109,6 +102,14 @@ export default function InputsPage() {
       // }
     } else if (paramsValue === 'all') { // Order
       setInputs(Order_Inputs)
+      // if (pageType === 'edit'){
+      //   axios.get('')
+      //   .then(res=>{
+      //     setFormData()
+      //   })
+      // }
+    } else if (paramsValue === 'invoices') { // Invoices
+      setInputs(Invoice_Inputs)
       // if (pageType === 'edit'){
       //   axios.get('')
       //   .then(res=>{
