@@ -5,7 +5,7 @@ import { useAuth } from '../../../../app/modules/auth'
 import { Languages } from './Languages'
 import { toAbsoluteUrl } from '../../../helpers'
 import { t } from 'i18next'
-
+import './style.css'
 const HeaderUserMenu: FC = () => {
   const { currentUser, logout } = useAuth()
   return (

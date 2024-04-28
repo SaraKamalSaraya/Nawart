@@ -2,3 +2,7 @@
     background-color: #0a6c84 !important;
     color: white
 }
+
+.aside-dark .menu .menu-item .menu-link.active .menu-icon, .aside-dark .menu .menu-item .menu-link.active .menu-icon .svg-icon, .aside-dark .menu .menu-item .menu-link.active .menu-icon i {
+    color: #1085A4 !important;
+}
