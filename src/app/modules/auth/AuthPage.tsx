@@ -6,6 +6,7 @@ import { ForgotPassword } from './components/ForgotPassword'
 import { Login } from './components/Login'
 import { toAbsoluteUrl } from '../../../_metronic/helpers'
 import { t } from 'i18next'
+import './style.css'
 
 const AuthLayout = () => {
   useEffect(() => {

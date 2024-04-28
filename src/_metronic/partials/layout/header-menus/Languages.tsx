@@ -53,7 +53,7 @@ const Languages: FC = () => {
       <a href='#' className='menu-link px-5'>
         <span className='menu-title position-relative'>
           Language
-          <span className='fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0'>
+          <span className='lang fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0'>
             {currentLanguage?.name}{' '}
             <img
               className='w-15px h-15px rounded-1 ms-2'

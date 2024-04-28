@@ -1,0 +1,6 @@
+.menu-state-primary .menu-item.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here), .menu-state-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+    color: #1085a4 !important;
+}
+a :hover, a:active, .text-hover-primary:hover  {
+    color: #1085a4 !important;
+}

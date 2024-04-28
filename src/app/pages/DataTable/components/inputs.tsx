@@ -170,13 +170,13 @@ export const Food_Items_Inputs = [
         id: "sizes",
         label: 'Sizes',
         type: "number",
-        placeholder: 'Enter Sizes',
+        placeholder: 'Choose Size',
     },
     {
         id: "supplements",
         label: 'Supplements',
         type: "text",
-        placeholder: 'Enter Supplements',
+        placeholder: 'Choose Supplements',
     },
 ]
 
@@ -187,13 +187,13 @@ export const Order_Inputs = [
         id: "status",
         label: 'Status',
         type: "select",
-        placeholder: 'Choose status',
+        placeholder: 'Choose Status',
     },
     {
         id: "foodItem",
         label: 'Food Items',
         type: "select",
-        placeholder: 'Choose Food Items',
+        placeholder: 'Choose Food Item',
     },
     {
         id: "size",
