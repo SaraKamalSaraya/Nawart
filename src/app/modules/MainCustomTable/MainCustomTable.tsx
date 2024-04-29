@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { KTSVG } from "../../../_metronic/helpers";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import "./style.css"
 
 interface TableProps {
   headers: string[];
@@ -182,7 +183,7 @@ const MainCustomTable: React.FC<TableProps> = ({
                     <td className="text-start">
                       <Dropdown>
                         <Dropdown.Toggle variant="outline-secondary" id={`dropdownMenu${item.props.id}`} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                          <i className="bi bi-three-dots text-primary" style={{ margin: 'auto' }} />
+                          <i className="bi bi-three-dots" style={{ margin: 'auto', color: '#1085A4' }} />
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                           {showSendNotification && <button className="dropdown-item btn my-2 text-info w-100" onClick={() => setShowModal(true)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>{t('Send Notification')} <i className="bi bi-pencil ms-2 text-info" /></button>}
@@ -219,9 +220,9 @@ const MainCustomTable: React.FC<TableProps> = ({
             <div className='modal-dialog modal-dialog-centered mw-650px'>
               <div className='modal-content'>
                 <div className='modal-header'>
-                  <h2 className='fw-bolder'> {t('Choose Notification Type')} </h2>
+                  <h2 className='fw-bolder'> {t('Send Notification')} </h2>
                   <div
-                    className='btn btn-icon btn-sm btn-active-icon-primary'
+                    className='btn btn-icon btn-sm'
                     data-kt-users-modal-action='close'
                     onClick={() => setShowModal(false)}
                     style={{ cursor: 'pointer' }}
@@ -232,7 +233,7 @@ const MainCustomTable: React.FC<TableProps> = ({
                 <div className='modal-body scroll-y mx-5 mx-xl-15'>
                   <Form >
                     <Form.Group className='' style={{ width: '100%' }}>
-                      <Form.Label htmlFor='notification'>{t(`Notification Type`)}</Form.Label>
+                      <Form.Label htmlFor='notification'>{t(`Choose Notification Type`)}</Form.Label>
                       <Form.Select
                         id='notification'
                       >
@@ -261,7 +262,7 @@ const MainCustomTable: React.FC<TableProps> = ({
                       </Button>
                       <Button
                         type='button'
-                        className='btn btn-light w-50 mb-5 mx-4'
+                        className='btn btn-primary w-50 mb-5 mx-4'
                         onClick={() => setShowModal(false)}
                       >
                         {t('Close')}

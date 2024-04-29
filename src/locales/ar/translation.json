@@ -1232,5 +1232,11 @@
   "Choose order":"اختر الطلب",
   "Banner":"راية",
   "Enter Banner":"ادخل راية",
-  "Choose Banner":"اختر راية"
+  "Choose Banner":"اختر راية",
+  "Sign In to Nawart":"تسجيل الدخول إلى نورت",
+  "Send Notification":"إرسال تنبيه",
+  "Enter Note":"ادخل الملاحظات",
+  "Note": "الملاحظات",
+  "Choose Notification Type":"اختر نوع التنبيه",
+  "Close": "اغلاق"
 }

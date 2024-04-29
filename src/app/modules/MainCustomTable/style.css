@@ -1,0 +1,3 @@
+div.card .modal-body .btn.btn-primary:hover:not(.btn-active) {
+    background-color: #0A6C84 !important;
+}

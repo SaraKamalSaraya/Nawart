@@ -82,7 +82,7 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>{t('Sign In to Care')}</h1>
+        <h1 className='text-dark mb-3'>{t('Sign In to Nawart')}</h1>
         
       </div>
       {/* begin::Heading */}
