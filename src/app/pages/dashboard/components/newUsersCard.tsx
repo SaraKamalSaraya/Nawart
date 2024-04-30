@@ -64,7 +64,7 @@ const NewUsersCard: React.FC<UsersCardProps> = ({
           })}
           {
             remainingNewusersCount > 0 &&
-            <div className="symbol symbol-55px symbol-circle" onClick={() => navigate('/user-management/user')}>
+            <div className="symbol symbol-55px symbol-circle" onClick={() => navigate('/user-management/users')}>
               <span className="symbol-label bg-light text-gray-400 fs-8 fw-bold">+ {remainingNewusersCount} </span>
             </div>
           }

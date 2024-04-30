@@ -1,8 +1,8 @@
 import { t } from 'i18next';
 
 // ----------------------------- Users -----------------------------
-export const Admins_Headers = ['#', 'Name', 'Email', 'Image', 'Created At']
-export const Users_Headers = ['#', 'Name', 'Email', 'Image', 'Created At']
+export const Admins_Headers = ['#', 'Image', 'Name', 'Email', 'Created At']
+export const Users_Headers = ['#', 'Image', 'Name', 'Email', 'Created At']
 export const Delivery_Men_Headers = ['#', 'Full Name', 'Email', 'Phone Number']
 
 

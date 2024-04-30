@@ -41,7 +41,7 @@ const DataList = () => {
     // if (res?.status == '404') {
     //   return navigate(`/no-items?to=${url}`)
     // }
-    setData(res?.data?.data)
+    setData(res?.data?.data?.reverse())
   }
 
   // Setting the data
@@ -49,12 +49,12 @@ const DataList = () => {
     if (paramsValue === 'admins') {
       setHeaders(Admins_Headers)
       setColumns(Admins_Columns)
-      setTitle(Admins_Columns[0])
+      setTitle(Admins_Columns[1])
       fetchData('admin')
     } else if (paramsValue === 'users') {
       setHeaders(Users_Headers)
       setColumns(Users_Columns)
-      setTitle(Users_Columns[0])
+      setTitle(Users_Columns[1])
       fetchData('user')
     } else if (paramsValue === 'deliveryMen') {
       setHeaders(Delivery_Men_Headers)
@@ -134,7 +134,7 @@ const DataList = () => {
           <tr
             key={item.id}
             id={item.id as any}
-            title={title}
+            title={item[title]}
             style={{ backgroundColor: index % 2 === 0 ? 'white' : '#eef9fa' }}
           >
             <td>{index + 1}</td>

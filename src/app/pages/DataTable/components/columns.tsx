@@ -1,8 +1,8 @@
 
 
 // ----------------------------- Users -----------------------------
-export const Admins_Columns = ['name', 'email', 'image', 'created_at']
-export const Users_Columns = ['name', 'email', 'image', 'created_at']
+export const Admins_Columns = ['image', 'name', 'email', 'created_at']
+export const Users_Columns = ['image', 'name', 'email', 'created_at']
 export const Delivery_Men_Columns = ['fullName', 'email', 'phone']
 
 

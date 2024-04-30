@@ -45,13 +45,14 @@ const Topbar: FC = () => {
 
           {unreadNotifications ?
             <>
-              <div className="circle" style={{
+              {/* <div style={{
                 width: '10px',
                 height: '10px',
                 backgroundColor: 'red',
                 borderRadius: '50%'
               }}></div>
-              <i className="bi bi-bell" style={{ fontSize: '25px', color: '#1085A4' }} ></i>
+              <i className="bi bi-bell" style={{ fontSize: '25px', color: '#1085A4' }} ></i> */}
+              <i className="bi bi-bell-fill" style={{ fontSize: '25px', color: '#1085A4' }}></i>
             </>
             :
             <i className="bi bi-bell" style={{ fontSize: '25px', color: '#1085A4' }} ></i>
