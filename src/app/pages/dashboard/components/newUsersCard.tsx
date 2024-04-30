@@ -5,21 +5,21 @@ import getMethod from '../../../../functions/getMethod';
 
 interface UserData {
   id: number;
-  first_name: string;
+  name: string;
   image: string;
 }
 
 interface UsersCardProps {
-  newPatientsCount: number;
-  remainingNewPatientsCount: number;
-  newPatients: UserData[];
+  newusersCount: number;
+  remainingNewusersCount: number;
+  newusers: UserData[];
   percentageIncrease: number;
 }
 
 const NewUsersCard: React.FC<UsersCardProps> = ({
-  newPatientsCount,
-  remainingNewPatientsCount,
-  newPatients,
+  newusersCount,
+  remainingNewusersCount,
+  newusers,
   percentageIncrease
 }) => {
   const navigate = useNavigate()
@@ -28,7 +28,7 @@ const NewUsersCard: React.FC<UsersCardProps> = ({
       <div className="card-header pt-5">
         <div className="card-title d-flex flex-column">
           <div className="d-flex align-items-center">
-            <span className="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">{newPatientsCount} </span>
+            <span className="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">{newusersCount} </span>
             <span className="badge badge-light-danger fs-base">
               <i className="ki-duotone ki-arrow-down fs-5 text-danger ms-n1"><span className="path1" /><span className="path2" /></i>
               {percentageIncrease}%
@@ -37,14 +37,14 @@ const NewUsersCard: React.FC<UsersCardProps> = ({
 
 
 
-          <span className="text-gray-500 pt-1 fw-semibold fs-6">{t('New Patients This Month')} </span>
+          <span className="text-gray-500 pt-1 fw-semibold fs-6">{t('New Users This Month')} </span>
         </div>
       </div>
       <div className="card-body d-flex flex-column justify-content-end mx-35 w-100">
-        <span className="fs-6 fw-bolder text-gray-800 d-block mb-2">{t('New Patients')} </span>
+        <span className="fs-6 fw-bolder text-gray-800 d-block mb-2">{t('New Users')} </span>
         {/*begin::Users group*/}
         <div className="symbol-group symbol-hover flex-nowrap">
-          {newPatients?.map((item, index) => {
+          {newusers?.map((item, index) => {
             return (
               <div className="symbol symbol-55px symbol-circle" key={index}>
                 <span
@@ -57,15 +57,15 @@ const NewUsersCard: React.FC<UsersCardProps> = ({
                     fontWeight: '900'
                   }}
                 >
-                  {item.first_name.slice(0, 7)}
+                  {item.name.slice(0, 7)}
                 </span>
               </div>
             )
           })}
           {
-            remainingNewPatientsCount > 0 &&
-            <div className="symbol symbol-55px symbol-circle" onClick={() => navigate('/user-management/patient')}>
-              <span className="symbol-label bg-light text-gray-400 fs-8 fw-bold">+ {remainingNewPatientsCount} </span>
+            remainingNewusersCount > 0 &&
+            <div className="symbol symbol-55px symbol-circle" onClick={() => navigate('/user-management/user')}>
+              <span className="symbol-label bg-light text-gray-400 fs-8 fw-bold">+ {remainingNewusersCount} </span>
             </div>
           }
 

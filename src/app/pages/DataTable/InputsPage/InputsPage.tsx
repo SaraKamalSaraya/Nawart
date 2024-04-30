@@ -138,7 +138,6 @@ export default function InputsPage() {
       if (pageType === 'add') response = await postMethod(`/categories`, formDataToSend)
       else response = await postMethod(`/categories/update/${id}`, formDataToSend)
     }
-    console.log('click', paramsValue, pageType)
     setLoading(false)
 
     if (response?.status === 200 || response?.status === 201) {
@@ -150,7 +149,7 @@ export default function InputsPage() {
       // navigate
       if (paramsValue === 'admins') navigate('/user-management/admins')
       else if (paramsValue === 'users') navigate('/user-management/users')
-        else if (paramsValue === 'categories') navigate('/menu/categories')
+      else if (paramsValue === 'categories') navigate('/menu/categories')
     }
   }
 

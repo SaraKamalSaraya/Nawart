@@ -134,7 +134,7 @@
   "Sales": "المبيعات",
   "Expenses": "المصروفات",
   "Recent Users": "المستخدمين الأخيرين",
-  "new users": "مستخدمين جدد",
+  "new users": "المستخدمين الجدد",
   "Reply": "الرد",
   "Yestarday": "الأمس",
   "Tasks Overview": "نظرة عامة على المهام",
@@ -165,7 +165,7 @@
   "Finance and accounting reports": "تقارير المالية والمحاسبة",
   "Sales Statistics": "إحصائيات المبيعات",
   "Weekly Sales": "المبيعات الأسبوعية",
-  "New Users": "مستخدمين جدد",
+  "New Users": "المستخدمين الجدد",
   "Item Orders": "طلبات المنتجات",
   "Bug Reports": "تقارير الأخطاء",
   "Sales Progress": "تقدم المبيعات",
@@ -1241,5 +1241,6 @@
   "Close": "اغلاق",
   "Enter Password":"ادخل كلمة المرور",
   "Password Confirmation":"تأكيد كلمة المرور",
-  "Edit User":"تعديل مستخدم"
+  "Edit User":"تعديل مستخدم",
+  "New Users This Month":"مستخدمين جدد لهذا الشهر"
 }

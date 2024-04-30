@@ -12,7 +12,7 @@ import getMethod from '../../../functions/getMethod';
 
 interface UserData {
   id: number;
-  first_name: string;
+  name: string;
   image: string;
 }
 
@@ -32,15 +32,14 @@ interface AnalysisBookings {
 const DashboardPage: FC = () => {
   // User Data Card 
   const [adminsCount, setAdminsCount] = useState<number>(0);
-  const [patientsCount, setPatientsCount] = useState<number>(0);
-  const [doctorsCount, setDoctorsCount] = useState<number>(0);
-  const [medicalCentersCount, setMedicalCentersCount] = useState<number>(0);
+  const [usersCount, setusersCount] = useState<number>(0);
+  const [deliveryMenCount, setdeliveryMenCount] = useState<number>(0);
   const [totalUsersCount, setTotalUsersCount] = useState<number>(0);
 
   // New users card
-  const [newPatientsCount, setNewPatientsCount] = useState<number>(0);
-  const [remainingNewPatientsCount, setRemainingNewPatientsCount] = useState<number>(0);
-  const [newPatients, setNewPatients] = useState<UserData[]>([]);
+  const [newusersCount, setNewusersCount] = useState<number>(0);
+  const [remainingNewusersCount, setRemainingNewusersCount] = useState<number>(0);
+  const [newusers, setNewusers] = useState<UserData[]>([]);
   const [percentageIncrease, setPercentageIncrease] = useState<number>(0);
 
   // Reservasions Card
@@ -50,71 +49,55 @@ const DashboardPage: FC = () => {
 
 
   const navigate = useNavigate()
-  // useEffect(() => {
-  //   const fetchAdminsCount = async () => {
-  //     const res = await getMethod('/admins')
-  //     if (res?.status == '404') {
-  //       return navigate('/no-items?to=user-management/admin')
-  //     }
-  //     setAdminsCount(res?.data?.admins?.length)
-  //   }
-  //   const fetchPatientsCount = async () => {
-  //     const res = await getMethod('/user')
-  //     if (res?.status == '404') {
-  //       return navigate('/no-items?to=user-management/admin')
-  //     }
-  //     setPatientsCount(res?.data?.data?.length)
+  useEffect(() => {
+    const fetchAdminsCount = async () => {
+      const res = await getMethod('/admin')
+      setAdminsCount(res?.data?.data?.length)
+    }
+    const fetchusersCount = async () => {
+      const res = await getMethod('/user')
+      setusersCount(res?.data?.data?.length)
 
-  //     // Get New Users count <last month>
-  //     const filteredData = res?.data?.data?.filter((item: any) => {
-  //       const createdAtDate = new Date(item.created_at);
-  //       const currentDate = new Date();
-  //       const oneMonthAgo = new Date();
-  //       oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-  //       return createdAtDate >= oneMonthAgo && createdAtDate <= currentDate;
-  //     });
-  //     setNewPatientsCount(filteredData?.length);
+      // Get New Users count <last month>
+      const filteredData = res?.data?.data?.filter((item: any) => {
+        const createdAtDate = new Date(item.created_at);
+        const currentDate = new Date();
+        const oneMonthAgo = new Date();
+        oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+        return createdAtDate >= oneMonthAgo && createdAtDate <= currentDate;
+      });
+      setNewusersCount(filteredData?.length);
 
-  //     // Set last 4 New Patients data
-  //     const lastFourNewPatients = filteredData?.slice(-5);
-  //     const remainingCount = Math.max(0, filteredData?.length - 5);
-  //     setNewPatients(lastFourNewPatients)
-  //     setRemainingNewPatientsCount(remainingCount)
+      // Set last 4 New users data
+      console.log('filteredData',filteredData)
+      const lastFiveNewusers = filteredData?.slice(-5);
+      const remainingCount = Math.max(0, filteredData?.length - 5);
+      setNewusers(lastFiveNewusers)
+      setRemainingNewusersCount(remainingCount)
 
-  //     // Calculate percentage increase
-  //     if (patientsCount === 0) {
-  //       setPercentageIncrease(0);
-  //     } else {
-  //       const increase = patientsCount - newPatientsCount;
-  //       const percentage = (increase / patientsCount) * 100;
-  //       setPercentageIncrease(Math.max(0, percentage));
-  //     }
-  //   }
-  //   const fetchDoctorsCount = async () => {
-  //     const res = await getMethod('/doctors')
-  //     if (res?.status == '404') {
-  //       return navigate('/no-items?to=user-management/admin')
-  //     }
-  //     setDoctorsCount(res?.data?.Doctors?.length)
-  //   }
-  //   const fetchMedicalCentersCount = async () => {
-  //     const res = await getMethod('/medical_centers')
-  //     if (res?.status == '404') {
-  //       return navigate('/no-items?to=user-management/admin')
-  //     }
-  //     setMedicalCentersCount(res?.data?.medical_centers?.length)
-  //   }
+      // Calculate percentage increase
+      if (usersCount === 0) {
+        setPercentageIncrease(0);
+      } else {
+        const increase = usersCount - newusersCount;
+        const percentage = (increase / usersCount) * 100;
+        setPercentageIncrease(Math.max(0, percentage));
+      }
+    }
+    // const fetchdeliveryMenCount = async () => {
+    //   const res = await getMethod('/deliveryMen')
+    //   setdeliveryMenCount(res?.data?.deliveryMen?.length)
+    // }
 
-  //   fetchAdminsCount()
-  //   fetchPatientsCount()
-  //   fetchDoctorsCount()
-  //   fetchMedicalCentersCount()
-  // }, [patientsCount])
+    fetchAdminsCount()
+    fetchusersCount()
+    // fetchdeliveryMenCount()
+  }, [usersCount])
 
-  // useEffect(() => {
-  //   const total = medicalCentersCount + doctorsCount + patientsCount + adminsCount
-  //   setTotalUsersCount(total)
-  // }, [adminsCount, patientsCount, doctorsCount, medicalCentersCount])
+  useEffect(() => {
+    const total = deliveryMenCount + usersCount + adminsCount
+    setTotalUsersCount(total)
+  }, [adminsCount, usersCount, deliveryMenCount])
 
   // useEffect(() => {
   //   const fetchAnalysisBookings = async () => {
@@ -148,34 +131,29 @@ const DashboardPage: FC = () => {
                 title: t('Admins'),
                 bulletColor: "danger"
               },
-              patient: {
-                count: patientsCount,
-                title: t('Patients'),
+              user: {
+                count: usersCount,
+                title: t('Users'),
                 bulletColor: "primary"
               },
               doctor: {
-                count: doctorsCount,
-                title: t('Doctors'),
+                count: deliveryMenCount,
+                title: t('Delivery Men'),
                 bulletColor: "warning"
-              },
-              medicalCenter: {
-                count: medicalCentersCount,
-                title: t('Medical Centers'),
-                bulletColor: "success"
               }
             }}
             totalCount={totalUsersCount}
           />
           <NewUsersCard
-            newPatientsCount={newPatientsCount}
-            remainingNewPatientsCount={remainingNewPatientsCount}
-            newPatients={newPatients}
+            newusersCount={newusersCount}
+            remainingNewusersCount={remainingNewusersCount}
+            newusers={newusers}
             percentageIncrease={percentageIncrease}
           />
         </div>
         <div className="col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-md-10 mb-xl-20">
           <DataCard
-            title={t('Reservasion')}
+            title={t('Orders')}
             cardData={{
               analysisBookings: {
                 count: analysisBookingCount,

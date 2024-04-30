@@ -140,8 +140,11 @@ const DataList = () => {
             <td>{index + 1}</td>
             {columns?.map((column, index_number) => (
               <td key={index_number}>
-                {column === 'image' ? <img src={item[column]} alt="Image" style={{ maxWidth: '100px' }} /> :
-                  (item[column]?.length > 15 ? item[column].substring(0, 15) + ' ...' : item[column])
+                {column === 'image' ? <img src={item[column]} alt="Image" style={{ width: '100px' }} /> 
+                : column === 'created_at' ||  column === 'updated_at' ?
+                formatDate(item[column])
+                :
+                  (item[column]?.length > 20 ? item[column].substring(0, 15) + ' ...' : item[column])
                 }
               </td>
             ))}
