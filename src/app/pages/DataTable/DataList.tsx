@@ -11,6 +11,8 @@ import SwalConfirmAlert from '../../../functions/swal/SwalConfirmAlert'
 import deleteMethod from '../../../functions/deleteMethod'
 import SwalShowAlert from '../../../functions/swal/SwalShowAlert'
 import formatDate from '../../../functions/FormatDate';
+import GetMethod from '../../../functions/getMethod';
+import { useNavigate } from 'react-router-dom';
 
 
 interface Data {
@@ -18,11 +20,15 @@ interface Data {
   [key: string]: any;
 }
 
+const API_URL = process.env.REACT_APP_API_URL
+export const GET_ADMINS = `${API_URL}/admin`
+
 const DataList = () => {
   const [trigger, setTrigger] = useState(false)
+  const navigate = useNavigate()
+
   const [headers, setHeaders] = useState([''])
   const [columns, setColumns] = useState([''])
-
   const [title, setTitle] = useState('')
   const [data, setData] = useState<Data[]>([]);
 
@@ -30,19 +36,26 @@ const DataList = () => {
   const pathSegments = params.split('/');
   const paramsValue = pathSegments && pathSegments.length >= 0 ? pathSegments[pathSegments.length - 1] : null;
 
-  console.log(paramsValue)
+  const fetchData = async (url: string) => {
+    const res = await GetMethod(`/${url}`)
+    // if (res?.status == '404') {
+    //   return navigate(`/no-items?to=${url}`)
+    // }
+    setData(res?.data?.data)
+  }
+
   // Setting the data
   useEffect(() => {
     if (paramsValue === 'admins') {
       setHeaders(Admins_Headers)
       setColumns(Admins_Columns)
       setTitle(Admins_Columns[0])
-      setData(Admins_Data)
+      fetchData('admin')
     } else if (paramsValue === 'users') {
       setHeaders(Users_Headers)
       setColumns(Users_Columns)
       setTitle(Users_Columns[0])
-      setData(Users_Data)
+      fetchData('user')
     } else if (paramsValue === 'deliveryMen') {
       setHeaders(Delivery_Men_Headers)
       setColumns(Delivery_Men_Columns)
@@ -62,7 +75,7 @@ const DataList = () => {
       setHeaders(Categories_Headers)
       setColumns(Categories_Columns)
       setTitle(Categories_Columns[1])
-      setData(Categories_Data)
+      fetchData('categories')
     } else if (paramsValue === 'foodItems') {
       setHeaders(Food_Items_Headers)
       setColumns(Food_Items_Columns)
@@ -84,7 +97,7 @@ const DataList = () => {
       setTitle('')
       setData([])
     }
-  }, [params]);
+  }, [params, trigger]);
 
   const handleDeleteAll = async (itemsToDelete: number[]) => {
     if (itemsToDelete.length > 0) {
@@ -93,7 +106,9 @@ const DataList = () => {
         'warning',
         async () => {
           for (const id of itemsToDelete) {
-            await deleteMethod(`/admins/${id}`)
+            if (paramsValue === 'admins') await deleteMethod(`/admin/${id}`)
+            else if (paramsValue === 'users') await deleteMethod(`/user/${id}`)
+            else if (paramsValue === 'categories') await deleteMethod(`/categories/${id}`)
           }
 
           SwalShowAlert('success', 'Deleted successfully')
@@ -125,8 +140,8 @@ const DataList = () => {
             <td>{index + 1}</td>
             {columns?.map((column, index_number) => (
               <td key={index_number}>
-                {column === 'image' ? <img src={item[column]} alt="Image" style={{ maxWidth: '100px' }} /> : 
-                (item[column]?.length > 15 ? item[column].substring(0, 15) + ' ...' : item[column])
+                {column === 'image' ? <img src={item[column]} alt="Image" style={{ maxWidth: '100px' }} /> :
+                  (item[column]?.length > 15 ? item[column].substring(0, 15) + ' ...' : item[column])
                 }
               </td>
             ))}

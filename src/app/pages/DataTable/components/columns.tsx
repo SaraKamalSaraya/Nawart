@@ -1,8 +1,8 @@
 
 
 // ----------------------------- Users -----------------------------
-export const Admins_Columns = ['fullName', 'email']
-export const Users_Columns = ['fullName', 'email', 'phone']
+export const Admins_Columns = ['name', 'email', 'image', 'created_at']
+export const Users_Columns = ['name', 'email', 'image', 'created_at']
 export const Delivery_Men_Columns = ['fullName', 'email', 'phone']
 
 
@@ -12,7 +12,8 @@ export const Banners_Columns = ['image','title', 'description', 'price']
 
 
 // ----------------------------- Menu -----------------------------
-export const Categories_Columns = ['image','title', 'foodItems','banner']
+// export const Categories_Columns = ['image','title', 'foodItems','banner']
+export const Categories_Columns = ['image','name', 'created_at','updated_at']
 export const Food_Items_Columns = ['image','title', 'description', 'basePrice', 'sizes', 'supplements']
 
 

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Dropdown, Form, Pagination, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { KTSVG } from "../../../_metronic/helpers";
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import "./style.css"
 
@@ -56,7 +55,6 @@ const MainCustomTable: React.FC<TableProps> = ({
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredChildren.slice(indexOfFirstItem, indexOfLastItem);
-  console.log(currentItems)
 
   const handlePagination = (pageNumber: number) => setCurrentPage(pageNumber);
   const navigate = useNavigate();

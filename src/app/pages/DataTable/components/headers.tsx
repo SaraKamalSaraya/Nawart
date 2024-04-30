@@ -1,8 +1,8 @@
 import { t } from 'i18next';
 
 // ----------------------------- Users -----------------------------
-export const Admins_Headers = ['#', 'Full Name', 'Email']
-export const Users_Headers = ['#', 'Full Name', 'Email', 'Phone Number']
+export const Admins_Headers = ['#', 'Name', 'Email', 'Image', 'Created At']
+export const Users_Headers = ['#', 'Name', 'Email', 'Image', 'Created At']
 export const Delivery_Men_Headers = ['#', 'Full Name', 'Email', 'Phone Number']
 
 
@@ -12,7 +12,8 @@ export const Banners_Headers = ['#', 'Image', 'Title', 'Description', 'Price']
 
 
 // ----------------------------- Menu -----------------------------
-export const Categories_Headers = ['#', 'Image', 'Title', 'Food Items','Banner']
+// export const Categories_Headers = ['#', 'Image', 'Title', 'Food Items','Banner']
+export const Categories_Headers = ['#', 'Image', 'Name', 'Created At','Updated At']
 export const Food_Items_Headers = ['#', 'Image', 'Title', 'Description', 'Base Price', 'Sizes', 'Supplements']
 
 

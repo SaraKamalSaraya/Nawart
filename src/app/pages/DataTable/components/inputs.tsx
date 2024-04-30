@@ -11,39 +11,70 @@ export const Default_Inputs = [
 ]
 
 // ----------------------------- Users -----------------------------
-export const Users_Inputs = [
-    {
-        id: "fullName",
-        label: 'Full Name',
-        type: "text",
-        placeholder: 'Enter Full Name',
-    },
-    {
-        id: "email",
-        label: 'Email',
-        type: "text",
-        placeholder: 'Enter Email',
-    },
-    {
-        id: "phone",
-        label: 'Phone Number',
-        type: "number",
-        placeholder: 'Enter Phone Number',
-    }
-]
 
 export const Admins_Inputs = [
     {
-        id: "fullName",
-        label: 'Full Name',
+        id: "name",
+        label: 'Name',
         type: "text",
-        placeholder: 'Enter Full Name',
+        placeholder: 'Enter Name',
     },
     {
         id: "email",
         label: 'Email',
         type: "text",
         placeholder: 'Enter Email',
+    },
+    // {
+    //     id: "image",
+    //     label: 'Image',
+    //     type: "file",
+    //     placeholder: 'Add Image',
+    // },
+    {
+        id: "password",
+        label: 'Password',
+        type: "password",
+        placeholder: 'Enter Password',
+    },
+    {
+        id: "password_confirmation",
+        label: 'Confirm Password',
+        type: "password",
+        placeholder: 'Password Confirmation',
+    },
+]
+
+export const Users_Inputs = [
+    {
+        id: "name",
+        label: 'Name',
+        type: "text",
+        placeholder: 'Enter Name',
+    },
+    {
+        id: "email",
+        label: 'Email',
+        type: "text",
+        placeholder: 'Enter Email',
+    },
+    // {
+    //     id: "image",
+    //     label: 'Image',
+    //     type: "file",
+    //     placeholder: 'Add Image',
+    // },
+    {
+        id: "password",
+        label: 'Password',
+        type: "password",
+        placeholder: 'Enter Password',
+    },
+    {
+        id: "password_confirmation",
+        label: 'Confirm Password',
+        type: "password",
+        placeholder: 'Password Confirmation',
     },
 ]
 
@@ -122,23 +153,23 @@ export const Categories_Inputs = [
         placeholder: 'Add Image',
     },
     {
-        id: "title",
-        label: 'Title',
+        id: "name",
+        label: 'Name',
         type: "text",
-        placeholder: 'Enter Title',
+        placeholder: 'Enter Name',
     },
-    {
-        id: "banner",
-        label: 'Banner',
-        type: "select",
-        placeholder: 'Choose Banner',
-    },
-    {
-        id: "foodItems",
-        label: 'Food Items',
-        type: "select",
-        placeholder: 'Choose Food Item',
-    },
+    // {
+    //     id: "banner",
+    //     label: 'Banner',
+    //     type: "select",
+    //     placeholder: 'Choose Banner',
+    // },
+    // {
+    //     id: "foodItems",
+    //     label: 'Food Items',
+    //     type: "select",
+    //     placeholder: 'Choose Food Item',
+    // },
 ]
 
 export const Food_Items_Inputs = [

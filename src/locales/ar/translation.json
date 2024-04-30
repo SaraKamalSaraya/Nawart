@@ -1205,7 +1205,7 @@
   "Delivery Man": "الطيار",
   "The name field is required.": "حقل الاسم مطلوب",
   "Advertisement Management": "إدارة الإعلانات",
-  "Banners": "رايات",
+  "Banners": "الرايات",
   "Add Delivery Man": "اضافة طيار",
   "Add Banner": "اضافة راية",
   "Discount Percentage": "نسبة الخصم",
@@ -1238,5 +1238,8 @@
   "Enter Note":"ادخل الملاحظات",
   "Note": "الملاحظات",
   "Choose Notification Type":"اختر نوع التنبيه",
-  "Close": "اغلاق"
+  "Close": "اغلاق",
+  "Enter Password":"ادخل كلمة المرور",
+  "Password Confirmation":"تأكيد كلمة المرور",
+  "Edit User":"تعديل مستخدم"
 }

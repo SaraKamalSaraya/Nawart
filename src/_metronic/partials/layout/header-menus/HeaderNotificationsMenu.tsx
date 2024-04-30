@@ -8,24 +8,17 @@ import {t} from 'i18next'
 const NOTIFICATIONS = [
   {
     clientName: 'حامد سيد',
-    category: 'تحليل سكر',
+    category: 'تشيز برجر',
     photographerID: 'أسامة أحمد',
     created_at: ' 1 ',
     state: 'new',
   },
   {
     clientName: 'عبدالله محسن',
-    category: 'صورة دم شاملة',
+    category: 'بيتزا مارجريتا',
     photographerID: 'أسامة أحمد',
     created_at: ' 2 ',
     state: 'new',
-  },
-  {
-    clientName: 'نهى عادل',
-    category: 'سونار',
-    photographerID: 'يوسف عيد ',
-    created_at: ' 3 ',
-    state: 'done',
   },
 ]
 
@@ -39,7 +32,7 @@ const HeaderNotificationsMenu: FC = () => (
       style={{ backgroundColor:'#1085A4' }}
     >
       <h3 className='text-white fw-bold px-9 mt-5 mb-5'>
-        الحجوزات
+        {t('Notifications')}
       </h3>
     </div>
 
@@ -84,10 +77,10 @@ const HeaderNotificationsMenu: FC = () => (
 
         <div className='py-3 text-center border-top'>
           <Link
-            to='/reservations'
+            to='/orders/all'
             className='btn btn-color-gray-600 btn-active-color-primary show-all-notification'
           >
-            عرض الكل
+            {t('View All')}
             <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-5' />
           </Link>
         </div>

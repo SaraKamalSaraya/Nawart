@@ -13,7 +13,7 @@ const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
 const Topbar: FC = () => {
   const { config } = useLayout()
   const { currentUser } = useAuth()
-  const unreadNotifications  = true
+  const unreadNotifications = true
 
   const handleTheme = (theme: string) => {
     if (theme === 'dark') {
@@ -42,13 +42,22 @@ const Topbar: FC = () => {
           data-kt-menu-placement='bottom-end'
           data-kt-menu-flip='bottom'
         >
-          {/* <div className="circle" style={{
-            width: '10px',
-            height: '10px',
-            backgroundColor: 'red',
-            borderRadius: '50%'
-          }}></div> */}
-          <i className="bi bi-bell" style={{ fontSize: '25px', color: unreadNotifications ? '#1085A4': '' }} ></i>
+
+          {unreadNotifications ?
+            <>
+              <div className="circle" style={{
+                width: '10px',
+                height: '10px',
+                backgroundColor: 'red',
+                borderRadius: '50%'
+              }}></div>
+              <i className="bi bi-bell" style={{ fontSize: '25px', color: '#1085A4' }} ></i>
+            </>
+            :
+            <i className="bi bi-bell" style={{ fontSize: '25px', color: '#1085A4' }} ></i>
+          }
+
+
         </div>
         <HeaderNotificationsMenu />
       </div>

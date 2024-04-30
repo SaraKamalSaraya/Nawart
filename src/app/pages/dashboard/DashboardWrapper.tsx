@@ -50,90 +50,90 @@ const DashboardPage: FC = () => {
 
 
   const navigate = useNavigate()
-  useEffect(() => {
-    const fetchAdminsCount = async () => {
-      const res = await getMethod('/admins')
-      if (res?.status == '404') {
-        return navigate('/no-items?to=user-management/admin')
-      }
-      setAdminsCount(res?.data?.admins?.length)
-    }
-    const fetchPatientsCount = async () => {
-      const res = await getMethod('/user')
-      if (res?.status == '404') {
-        return navigate('/no-items?to=user-management/admin')
-      }
-      setPatientsCount(res?.data?.data?.length)
+  // useEffect(() => {
+  //   const fetchAdminsCount = async () => {
+  //     const res = await getMethod('/admins')
+  //     if (res?.status == '404') {
+  //       return navigate('/no-items?to=user-management/admin')
+  //     }
+  //     setAdminsCount(res?.data?.admins?.length)
+  //   }
+  //   const fetchPatientsCount = async () => {
+  //     const res = await getMethod('/user')
+  //     if (res?.status == '404') {
+  //       return navigate('/no-items?to=user-management/admin')
+  //     }
+  //     setPatientsCount(res?.data?.data?.length)
 
-      // Get New Users count <last month>
-      const filteredData = res?.data?.data?.filter((item: any) => {
-        const createdAtDate = new Date(item.created_at);
-        const currentDate = new Date();
-        const oneMonthAgo = new Date();
-        oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-        return createdAtDate >= oneMonthAgo && createdAtDate <= currentDate;
-      });
-      setNewPatientsCount(filteredData?.length);
+  //     // Get New Users count <last month>
+  //     const filteredData = res?.data?.data?.filter((item: any) => {
+  //       const createdAtDate = new Date(item.created_at);
+  //       const currentDate = new Date();
+  //       const oneMonthAgo = new Date();
+  //       oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+  //       return createdAtDate >= oneMonthAgo && createdAtDate <= currentDate;
+  //     });
+  //     setNewPatientsCount(filteredData?.length);
 
-      // Set last 4 New Patients data
-      const lastFourNewPatients = filteredData?.slice(-5);
-      const remainingCount = Math.max(0, filteredData?.length - 5);
-      setNewPatients(lastFourNewPatients)
-      setRemainingNewPatientsCount(remainingCount)
+  //     // Set last 4 New Patients data
+  //     const lastFourNewPatients = filteredData?.slice(-5);
+  //     const remainingCount = Math.max(0, filteredData?.length - 5);
+  //     setNewPatients(lastFourNewPatients)
+  //     setRemainingNewPatientsCount(remainingCount)
 
-      // Calculate percentage increase
-      if (patientsCount === 0) {
-        setPercentageIncrease(0);
-      } else {
-        const increase = patientsCount - newPatientsCount;
-        const percentage = (increase / patientsCount) * 100;
-        setPercentageIncrease(Math.max(0, percentage));
-      }
-    }
-    const fetchDoctorsCount = async () => {
-      const res = await getMethod('/doctors')
-      if (res?.status == '404') {
-        return navigate('/no-items?to=user-management/admin')
-      }
-      setDoctorsCount(res?.data?.Doctors?.length)
-    }
-    const fetchMedicalCentersCount = async () => {
-      const res = await getMethod('/medical_centers')
-      if (res?.status == '404') {
-        return navigate('/no-items?to=user-management/admin')
-      }
-      setMedicalCentersCount(res?.data?.medical_centers?.length)
-    }
+  //     // Calculate percentage increase
+  //     if (patientsCount === 0) {
+  //       setPercentageIncrease(0);
+  //     } else {
+  //       const increase = patientsCount - newPatientsCount;
+  //       const percentage = (increase / patientsCount) * 100;
+  //       setPercentageIncrease(Math.max(0, percentage));
+  //     }
+  //   }
+  //   const fetchDoctorsCount = async () => {
+  //     const res = await getMethod('/doctors')
+  //     if (res?.status == '404') {
+  //       return navigate('/no-items?to=user-management/admin')
+  //     }
+  //     setDoctorsCount(res?.data?.Doctors?.length)
+  //   }
+  //   const fetchMedicalCentersCount = async () => {
+  //     const res = await getMethod('/medical_centers')
+  //     if (res?.status == '404') {
+  //       return navigate('/no-items?to=user-management/admin')
+  //     }
+  //     setMedicalCentersCount(res?.data?.medical_centers?.length)
+  //   }
 
-    fetchAdminsCount()
-    fetchPatientsCount()
-    fetchDoctorsCount()
-    fetchMedicalCentersCount()
-  }, [patientsCount])
+  //   fetchAdminsCount()
+  //   fetchPatientsCount()
+  //   fetchDoctorsCount()
+  //   fetchMedicalCentersCount()
+  // }, [patientsCount])
 
-  useEffect(() => {
-    const total = medicalCentersCount + doctorsCount + patientsCount + adminsCount
-    setTotalUsersCount(total)
-  }, [adminsCount, patientsCount, doctorsCount, medicalCentersCount])
+  // useEffect(() => {
+  //   const total = medicalCentersCount + doctorsCount + patientsCount + adminsCount
+  //   setTotalUsersCount(total)
+  // }, [adminsCount, patientsCount, doctorsCount, medicalCentersCount])
 
-  useEffect(() => {
-    const fetchAnalysisBookings = async () => {
-      const res = await getMethod('/AnalysisBookings')
-      if (res?.status == '404') {
-        return navigate('/no-items?to=user-management/AnalysisBookings')
-      }
-      setAnalysisBookingsCount(res?.data?.data?.length)
-      setAnalysisBookings(res?.data?.data?.slice(0, 3))
-      console.log(res?.data?.data?.slice(0, 3))
-    }
+  // useEffect(() => {
+  //   const fetchAnalysisBookings = async () => {
+  //     const res = await getMethod('/AnalysisBookings')
+  //     if (res?.status == '404') {
+  //       return navigate('/no-items?to=user-management/AnalysisBookings')
+  //     }
+  //     setAnalysisBookingsCount(res?.data?.data?.length)
+  //     setAnalysisBookings(res?.data?.data?.slice(0, 3))
+  //     console.log(res?.data?.data?.slice(0, 3))
+  //   }
 
-    fetchAnalysisBookings()
-  }, [])
+  //   fetchAnalysisBookings()
+  // }, [])
 
-  useEffect(() => {
-    const total = analysisBookingCount
-    setTotalBookingCount(total)
-  }, [analysisBookingCount])
+  // useEffect(() => {
+  //   const total = analysisBookingCount
+  //   setTotalBookingCount(total)
+  // }, [analysisBookingCount])
 
 
   return (

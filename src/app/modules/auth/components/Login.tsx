@@ -4,11 +4,9 @@ import * as Yup from 'yup'
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
-import { getUserByToken, login } from '../core/_requests'
-import { toAbsoluteUrl } from '../../../../_metronic/helpers'
+import { login } from '../core/_requests'
 import { useAuth } from '../core/Auth'
-import { t, use } from 'i18next'
-import { UserModel } from '../core/_models'
+import { t } from 'i18next'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -23,8 +21,8 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'admin@gmail.com',
-  password: 'admin123',
+  email: 'john@example.com',
+  password: 'password123',
 }
 
 /*
@@ -45,23 +43,23 @@ export function Login() {
       try {
         const response = await login(values.email, values.password) as any;
 
-        // saveAuth({
-        //   access_token: response.data?.access_token,
-        // });
-        // saveCurrentUser(response.data?.user);
+        saveAuth({
+          access_token: response.data?.access_token,
+        });
+        saveCurrentUser(response.data?.user);
 
         // sign in as fake data 
-         saveAuth({
-          access_token: 'fake_jwt_token',
-         });
-         saveCurrentUser({
-          id: 1,
-          name: 'Admin',
-          email: 'ms@gmail.com',
-          thumbnail_url: 'https://avatars.dicebear.com/v2/avataaars/example.svg?options[mood][]=happy',
-          role: 0,
-          password: '123456789',
-         });
+        //  saveAuth({
+        //   access_token: 'fake_jwt_token',
+        //  });
+        //  saveCurrentUser({
+        //   id: 1,
+        //   name: 'Admin',
+        //   email: 'ms@gmail.com',
+        //   thumbnail_url: 'https://avatars.dicebear.com/v2/avataaars/example.svg?options[mood][]=happy',
+        //   role: 0,
+        //   password: '123456789',
+        //  });
          
       } catch (error) {
         console.error(error);

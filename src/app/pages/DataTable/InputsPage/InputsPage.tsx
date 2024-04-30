@@ -1,11 +1,11 @@
 import { t } from 'i18next'
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Container, Form } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
 import postMethod from '../../../../functions/postMethod'
 import SwalShowAlert from '../../../../functions/swal/SwalShowAlert'
 import { Admins_Inputs, Banners_Inputs, Categories_Inputs, Default_Inputs, Delivery_Men_Inputs, Food_Items_Inputs, Invoice_Inputs, Offers_Inputs, Order_Inputs, Users_Inputs } from '../components/inputs'
-import axios from 'axios'
+import GetMethod from '../../../../functions/getMethod'
 
 interface FormDataInterface {
   id: number;
@@ -20,7 +20,9 @@ interface Inputs {
 };
 
 export default function InputsPage() {
-  const [formData, setFormData] = useState<FormDataInterface>({} as FormDataInterface)
+  const { id } = useParams()
+  console.log('id', id)
+  const [formData, setFormData] = useState<FormDataInterface>({ id: 0 } as FormDataInterface)
   const [inputs, setInputs] = useState<Inputs[]>([]);
   const [pageType, setPageType] = useState('')
   const [loading, setLoading] = useState(false)
@@ -32,13 +34,19 @@ export default function InputsPage() {
   const pathSegments = params.split('/');
   let paramsValue = pathSegments && pathSegments.length >= 2 ? pathSegments[pathSegments.length - 2] : null;
 
+  const fetchData = async (url: string) => {
+    const res = await GetMethod(`/${url}`)
+    // if (url === 'admin' || url === 'user')
+    setFormData(res?.data?.data.find((item: any) => item.id == id))
+  }
+
   // Setting the data
   useEffect(() => {
     // Getting Page Type
-    if (paramsValue === 'edit'){
+    if (paramsValue === 'edit') {
       paramsValue = pathSegments && pathSegments.length >= 3 ? pathSegments[pathSegments.length - 3] : null;
       setPageType('edit')
-    } else{
+    } else {
       paramsValue = pathSegments && pathSegments.length >= 2 ? pathSegments[pathSegments.length - 2] : null;
       setPageType('add')
     }
@@ -46,83 +54,32 @@ export default function InputsPage() {
     // Getting inputs of the Page
     if (paramsValue === 'admins') {
       setInputs(Admins_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
+      if (pageType === 'edit') fetchData('admin')
     } else if (paramsValue === 'users') {
       setInputs(Users_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
+      if (pageType === 'edit') fetchData('user')
     } else if (paramsValue === 'deliveryMen') {
       setInputs(Delivery_Men_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
     } else if (paramsValue === 'offers') {
       setInputs(Offers_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
     } else if (paramsValue === 'banners') {
       setInputs(Banners_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
     } else if (paramsValue === 'categories') {
       setInputs(Categories_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
+      if (pageType === 'edit') fetchData('categories')
     } else if (paramsValue === 'foodItems') {
       setInputs(Food_Items_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
     } else if (paramsValue === 'all') { // Order
       setInputs(Order_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
     } else if (paramsValue === 'invoices') { // Invoices
       setInputs(Invoice_Inputs)
-      // if (pageType === 'edit'){
-      //   axios.get('')
-      //   .then(res=>{
-      //     setFormData()
-      //   })
-      // }
     } else {
       setInputs([])
       setFormData({} as FormDataInterface)
     }
     console.log(paramsValue)
 
-  }, [paramsValue]);
+  }, [paramsValue, pageType]);
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | any>) => {
@@ -152,21 +109,48 @@ export default function InputsPage() {
     e.preventDefault()
     setLoading(true)
 
+    // Handle incomming data
     const formDataToSend = new FormData()
-    // Object.entries(formData).forEach(([key, value]) => {
-    //   if (value != null) {
-    //     formDataToSend.append(key, value)
-    //   } else return;
-    // })
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value != null) {
+        formDataToSend.append(key, value as string | Blob)
+      } else return;
+    })
 
-    const response = await postMethod(`/admins`, formDataToSend)
+    // handle params value
+    if (paramsValue === 'edit') {
+      paramsValue = pathSegments && pathSegments.length >= 3 ? pathSegments[pathSegments.length - 3] : null;
+      setPageType('edit')
+    } else {
+      paramsValue = pathSegments && pathSegments.length >= 2 ? pathSegments[pathSegments.length - 2] : null;
+      setPageType('add')
+    }
+
+    // post in api
+    let response
+    if (paramsValue === 'admins') {
+      if (pageType === 'add') response = await postMethod(`/admin`, formDataToSend)
+      else response = await postMethod(`/admin/update/${id}`, formDataToSend)
+    } else if (paramsValue === 'users') {
+      if (pageType === 'add') response = await postMethod(`/user/register`, formDataToSend)
+      else response = await postMethod(`/user/update/${id}`, formDataToSend)
+    } else if (paramsValue === 'categories') {
+      if (pageType === 'add') response = await postMethod(`/categories`, formDataToSend)
+      else response = await postMethod(`/categories/update/${id}`, formDataToSend)
+    }
+    console.log('click', paramsValue, pageType)
     setLoading(false)
 
     if (response?.status === 200 || response?.status === 201) {
-      SwalShowAlert('success', 'Created successfully')
+      if (pageType === 'add') SwalShowAlert('success', 'Created successfully')
+      else SwalShowAlert('success', 'Updated successfully')
 
       setFormData({} as FormDataInterface)
-      navigate('/user-management/admins')
+
+      // navigate
+      if (paramsValue === 'admins') navigate('/user-management/admins')
+      else if (paramsValue === 'users') navigate('/user-management/users')
+        else if (paramsValue === 'categories') navigate('/menu/categories')
     }
   }
 
@@ -194,7 +178,7 @@ export default function InputsPage() {
       </Form.Group>
     );
   };
-  
+
 
 
   return (
@@ -214,7 +198,7 @@ export default function InputsPage() {
         {/* <Button type='submit' disabled={loading} className='w-200px mx-4 submit-btn'>
           {loading ? t('Loading...') : t('Submit')}
         </Button> */}
-        <button style={{backgroundColor:"#1085A4",color:"#fff"}} type='submit' disabled={loading} className='w-200px mx-4 btn'>
+        <button style={{ backgroundColor: "#1085A4", color: "#fff" }} type='submit' disabled={loading} className='w-200px mx-4 btn'>
           {loading ? t('Loading...') : t('Submit')}
         </button>
       </Form>
